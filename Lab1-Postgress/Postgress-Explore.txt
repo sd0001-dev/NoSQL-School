@@ -1,0 +1,664 @@
+
+===================================================================================================================
+
+sohaib@PE60-6QE:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+sohaib@PE60-6QE:~$ docker start pgadmin 
+pgadmin
+sohaib@PE60-6QE:~$ docker ps
+CONTAINER ID   IMAGE            COMMAND            CREATED        STATUS         PORTS                                              NAMES
+b7c770021cdf   dpage/pgadmin4   "/entrypoint.sh"   21 hours ago   Up 9 seconds   443/tcp, 0.0.0.0:5050->80/tcp, [::]:5050->80/tcp   pgadmin
+sohaib@PE60-6QE:~$ docker stop pgadmin
+pgadmin
+sohaib@PE60-6QE:~$ docker run --name school-pg -e POSTGRES_PASSWORD=12345678 -p 5432:5432 -d postgress
+Unable to find image 'postgress:latest' locally
+docker: Error response from daemon: failed to resolve reference "docker.io/library/postgress:latest": failed to do request: Head "https://registry-1.docker.io/v2/library/postgress/manifests/latest": dial tcp: lookup registry-1.docker.io on 127.0.0.53:53: server misbehaving
+
+Run 'docker run --help' for more information
+sohaib@PE60-6QE:~$ docker image ps
+docker: unknown command: docker image ps
+
+Usage:  docker image
+
+Run 'docker image --help' for more information
+sohaib@PE60-6QE:~$ docker run --name school-pg -e POSTGRES_PASSWORD=12345678 -p 5432:5432 -d postgres:1
+15               15-alpine        16-alpine        18.3-alpine3.23  
+sohaib@PE60-6QE:~$ docker run --name school-pg -e POSTGRES_PASSWORD=12345678 -p 5432:5432 -d postgres:1
+15               15-alpine        16-alpine        18.3-alpine3.23  
+sohaib@PE60-6QE:~$ docker run --name school-pg -e POSTGRES_PASSWORD=12345678 -p 5432:5432 -d postgres:1
+15               15-alpine        16-alpine        18.3-alpine3.23  
+sohaib@PE60-6QE:~$ docker run --name school-pg -e POSTGRES_PASSWORD=12345678 -p 5432:5432 -d postgres:18.3-alpine3.23 
+d694e58208d30f3453a77de71f444d3f3c50dd9713bb427d0bcdc710ec5e0cd9
+sohaib@PE60-6QE:~$ docker ps
+CONTAINER ID   IMAGE                      COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+d694e58208d3   postgres:18.3-alpine3.23   "docker-entrypoint.s…"   5 seconds ago   Up 4 seconds   0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp   school-pg
+sohaib@PE60-6QE:~$ docker exec -it school-pg psql -U postgress
+psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "postgress" does not exist
+sohaib@PE60-6QE:~$ docker exec -it school-pg psql -U school-pg
+psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "school-pg" does not exist
+sohaib@PE60-6QE:~$ docker exec -it school-pg psql -U postgres
+psql (18.3)
+Type "help" for help.
+
+postgres=# \timing on
+Timing is on.
+postgres=# create database atelier;
+CREATE DATABASE
+Time: 252.886 ms
+postgres=# \c
+You are now connected to database "postgres" as user "postgres".
+postgres=# \l
+                                                    List of databases
+   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+------------+------------+--------+-----------+-----------------------
+ atelier   | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | 
+ postgres  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | 
+ template0 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | =c/postgres          +
+           |          |          |                 |            |            |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | =c/postgres          +
+           |          |          |                 |            |            |        |           | postgres=CTc/postgres
+(4 rows)
+
+postgres=# -c "l"
+postgres-# -c "\l"
+postgres-# \c atelier
+You are now connected to database "atelier" as user "postgres".
+atelier-# create table clients(id integer PRIMARY KEY,)
+atelier-# nom text NOT NULL,
+atelier-# \l
+                                                    List of databases
+   Name    |  Owner   | Encoding | Locale Provider |  Collate   |   Ctype    | Locale | ICU Rules |   Access privileges   
+-----------+----------+----------+-----------------+------------+------------+--------+-----------+-----------------------
+ atelier   | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | 
+ postgres  | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | 
+ template0 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | =c/postgres          +
+           |          |          |                 |            |            |        |           | postgres=CTc/postgres
+ template1 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |        |           | =c/postgres          +
+           |          |          |                 |            |            |        |           | postgres=CTc/postgres
+(4 rows)
+
+atelier-# \dt
+Did not find any tables.
+atelier-# create table clients(id integer PRIMARY KEY,
+nom text NOT NULL, email text NOT NULL, ville text NOT NULL, solde numeric(10,2) NOT NULL);
+ERROR:  syntax error at or near "-"
+LINE 1: -c "l"
+        ^
+Time: 6.532 ms
+atelier=# /dt
+atelier-# \dt
+Did not find any tables.
+atelier-# create table clients(id integer PRIMARY KEY,
+nom text NOT NULL, email text NOT NULL, ville text NOT NULL, solde numeric(10,2) NOT NULL);
+ERROR:  syntax error at or near "/"
+LINE 1: /dt
+        ^
+Time: 0.374 ms
+atelier=# create table clients(
+atelier(# id integer PRIMARY KEY,
+atelier(# nom text NOT NULL,
+atelier(# email text NOT NULL,
+atelier(# ville text NOT NULL,
+atelier(# solde numeric(10,2) NOT NULL);
+CREATE TABLE
+Time: 26.102 ms
+atelier=# \dt
+           List of tables
+ Schema |  Name   | Type  |  Owner   
+--------+---------+-------+----------
+ public | clients | table | postgres
+(1 row)
+
+atelier=# select * from clients 
+atelier-# select * from clients;
+ERROR:  syntax error at or near "select"
+LINE 2: select * from clients;
+        ^
+Time: 0.453 ms
+atelier=# select * from clients;
+ id | nom | email | ville | solde 
+----+-----+-------+-------+-------
+(0 rows)
+
+Time: 2.136 ms
+atelier=# inserto into clients (id, nom, email, ville, solde)
+atelier-# values (1, 'sohaib', 'sohaib@example.com', 'meknes', 15000.0);
+ERROR:  syntax error at or near "inserto"
+LINE 1: inserto into clients (id, nom, email, ville, solde)
+        ^
+Time: 0.435 ms
+atelier=# select * from clients
+atelier-# select * from clients;
+ERROR:  syntax error at or near "select"
+LINE 2: select * from clients;
+        ^
+Time: 0.449 ms
+atelier=# select * from clients;
+ id | nom | email | ville | solde 
+----+-----+-------+-------+-------
+(0 rows)
+
+Time: 0.511 ms
+atelier=# insert into clients (id, nom, email, ville, solde)
+atelier-# values (1, 'sohaib', 'sohaib@example.com', 'meknes', 15000.0);
+INSERT 0 1
+Time: 8.143 ms
+atelier=# select * from clients;
+ id |  nom   |       email        | ville  |  solde   
+----+--------+--------------------+--------+----------
+  1 | sohaib | sohaib@example.com | meknes | 15000.00
+(1 row)
+
+Time: 0.600 ms
+atelier=# insert into clients (id, nom, email, ville, solde)
+atelier-# select i,
+atelier-# 'Client' || i,
+atelier-# 'client' || i || '@example.com',
+atelier-# (ARRAY['Rabat', 'Casablanca', 'Fes', 'Tanger', 'Marrakech'])[1 + i % 5],
+atelier-# round((random() * 1000)::numeric,2)
+atelier-# from generate_series(2, 2000000) as i;
+INSERT 0 1999999
+Time: 21324.605 ms (00:21.325)
+atelier=# ANALYZE clients;
+ANALYZE
+Time: 699.033 ms
+atelier=# select count(*) from clients;
+  count  
+---------
+ 2000000
+(1 row)
+
+Time: 164.624 ms
+atelier=# select * from clients limit(5);
+ id |   nom   |        email        |   ville   |  solde   
+----+---------+---------------------+-----------+----------
+  1 | sohaib  | sohaib@example.com  | meknes    | 15000.00
+  2 | Client2 | client2@example.com | Fes       |   492.97
+  3 | Client3 | client3@example.com | Tanger    |   297.45
+  4 | Client4 | client4@example.com | Marrakech |   820.62
+  5 | Client5 | client5@example.com | Rabat     |   777.24
+(5 rows)
+
+Time: 1.758 ms
+atelier=# select pg_size_pretty(pg_relation_size('clients')) as taille_table,
+atelier-# pg_size_pretty(pg_indexes_size('clients')) as taille_index;
+ taille_table | taille_index 
+--------------+--------------
+ 171 MB       | 43 MB
+(1 row)
+
+Time: 2.345 ms
+atelier=# select relpages, reltuples::bigint from pg_class where relname = 'clients'; show block_size;
+ relpages | reltuples 
+----------+-----------
+    21860 |   2000000
+(1 row)
+
+Time: 1.758 ms
+ block_size 
+------------
+ 8192
+(1 row)
+
+Time: 0.248 ms
+atelier=# show data_directory; select pg_relation_fliepath('clients'); select size from pg_stat_file(pg_relation_filepath('clients'));
+        data_directory         
+-------------------------------
+ /var/lib/postgresql/18/docker
+(1 row)
+
+Time: 0.345 ms
+ERROR:  function pg_relation_fliepath(unknown) does not exist
+LINE 1: select pg_relation_fliepath('clients');
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Time: 6.894 ms
+   size    
+-----------
+ 179077120
+(1 row)
+
+Time: 3.097 ms
+atelier=# show data_directory; select pg_relation_fliepath('clients'); select size from pg_stat_file(pg_relation_filepath('clients'));
+        data_directory         
+-------------------------------
+ /var/lib/postgresql/18/docker
+(1 row)
+
+Time: 0.322 ms
+ERROR:  function pg_relation_fliepath(unknown) does not exist
+LINE 1: select pg_relation_fliepath('clients');
+               ^
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+Time: 0.468 ms
+   size    
+-----------
+ 179077120
+(1 row)
+
+Time: 0.530 ms
+atelier=# show data_directory; select pg_relation_filepath('clients'); select size from pg_stat_file(pg_relation_filepath('clients'));
+        data_directory         
+-------------------------------
+ /var/lib/postgresql/18/docker
+(1 row)
+
+Time: 0.356 ms
+ pg_relation_filepath 
+----------------------
+ base/16387/16388
+(1 row)
+
+Time: 0.359 ms
+   size    
+-----------
+ 179077120
+(1 row)
+
+Time: 0.474 ms
+atelier=# select clid, id, nom from clients where id <= 3;
+ERROR:  column "clid" does not exist
+LINE 1: select clid, id, nom from clients where id <= 3;
+               ^
+HINT:  Perhaps you meant to reference the column "clients.id".
+Time: 0.527 ms
+atelier=# select ctid, id, nom from clients where id <= 3;
+ ctid  | id |   nom   
+-------+----+---------
+ (0,1) |  1 | sohaib
+ (0,2) |  2 | Client2
+ (0,3) |  3 | Client3
+(3 rows)
+
+Time: 1.884 ms
+atelier=# select ctid, id, nom from clients where id = 1000000;
+    ctid    |   id    |      nom      
+------------+---------+---------------
+ (10747,91) | 1000000 | Client1000000
+(1 row)
+
+Time: 1.029 ms
+atelier=# 
+atelier=# explain (analyze, buffers); select * from clients where email = "client1500000@example.com";
+ERROR:  syntax error at or near ";"
+LINE 1: explain (analyze, buffers);
+                                  ^
+Time: 0.436 ms
+ERROR:  column "client1500000@example.com" does not exist
+LINE 1: select * from clients where email = "client1500000@example.c...
+                                            ^
+Time: 0.456 ms
+atelier=# explain (analyze, buffers); select * from clients where email = "client1234567@example.com";
+ERROR:  syntax error at or near ";"
+LINE 1: explain (analyze, buffers);
+                                  ^
+Time: 0.421 ms
+ERROR:  column "client1234567@example.com" does not exist
+LINE 1: select * from clients where email = "client1234567@example.c...
+                                            ^
+Time: 0.356 ms
+atelier=# explain (analyze, buffers) select * from clients where email = "client1234567@example.com";
+ERROR:  column "client1234567@example.com" does not exist
+LINE 1: ...yze, buffers) select * from clients where email = "client123...
+                                                             ^
+Time: 0.579 ms
+atelier=# explain (analyze, buffers) select * from clients where email = "client1234567@example.com";
+ERROR:  column "client1234567@example.com" does not exist
+LINE 1: ...yze, buffers) select * from clients where email = "client123...
+                                                             ^
+Time: 0.560 ms
+atelier=# ! we still need to do something in this ex4, now we move to exe5
+atelier-# create table essai_sans_index (id integer, nom text, email text, ville text);
+ERROR:  syntax error at or near "!"
+LINE 1: ! we still need to do something in this ex4, now we move to ...
+        ^
+Time: 0.415 ms
+atelier=# create table essai_sans_index (id integer, nom text, email text, ville text);
+CREATE TABLE
+Time: 16.219 ms
+atelier=# create table essai_sans_index (id integer, nom text, email text, ville text);
+ERROR:  relation "essai_sans_index" already exists
+Time: 0.831 ms
+atelier=# create table essai_sans_index (id integer, nom text, email text, ville text);
+ERROR:  relation "essai_sans_index" already exists
+Time: 0.529 ms
+atelier=# create table essai_sans_index (id integer, nom text, email text, ville text);
+ERROR:  relation "essai_sans_index" already exists
+Time: 0.599 ms
+atelier=# create table essai_avec_index (id integer, nom text, email text, ville text);
+CREATE TABLE
+Time: 12.808 ms
+atelier=# create index on essai_avec_index (id);
+CREATE INDEX
+Time: 11.782 ms
+atelier=# create index on essai_avec_index (nom);
+CREATE INDEX
+Time: 10.603 ms
+atelier=# create index on essai_avec_index (email);
+CREATE INDEX
+Time: 9.948 ms
+atelier=# create index on essai_avec_index (ville);
+CREATE INDEX
+Time: 10.837 ms
+atelier=# insert into eassi_sans_index
+atelier-# select i, 'Client' || i, 'client' || i || '@example.com', 'Rabat'
+atelier-# from generate_series(1, 500000) as i;
+ERROR:  relation "eassi_sans_index" does not exist
+LINE 1: insert into eassi_sans_index
+                    ^
+Time: 0.802 ms
+atelier=# insert into eassi_avec_index
+select i, 'Client' || i, 'client' || i || '@example.com', 'Rabat'
+from generate_series(1, 500000) as i;
+ERROR:  relation "eassi_avec_index" does not exist
+LINE 1: insert into eassi_avec_index
+                    ^
+Time: 0.876 ms
+atelier=# create table comptes (id text PRIMARY KEY, solde numeric(10, 2) NOT NULL);
+CREATE TABLE
+Time: 12.534 ms
+atelier=# \c
+You are now connected to database "atelier" as user "postgres".
+atelier=# \c comptes
+connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  database "comptes" does not exist
+Previous connection kept
+atelier=# \dt
+                List of tables
+ Schema |       Name       | Type  |  Owner   
+--------+------------------+-------+----------
+ public | clients          | table | postgres
+ public | comptes          | table | postgres
+ public | essai_avec_index | table | postgres
+ public | essai_sans_index | table | postgres
+(4 rows)
+
+atelier=# select pg_backend_pid();
+ pg_backend_pid 
+----------------
+            480
+(1 row)
+
+Time: 0.678 ms
+atelier=# select solde from comptes where id = 'A';
+ solde  
+--------
+ 100.00
+(1 row)
+
+Time: 3.474 ms
+atelier=# BEGIN; select solde from comptes where id = 'A';
+BEGIN
+Time: 0.241 ms
+ solde  
+--------
+ 100.00
+(1 row)
+
+Time: 0.669 ms
+atelier=*# BEGIN; select solde from comptes where id = 'A';
+WARNING:  there is already a transaction in progress
+BEGIN
+Time: 0.394 ms
+ solde  
+--------
+ 100.00
+(1 row)
+
+Time: 0.554 ms
+atelier=*# BEGIN; update comptes set solde = solde - 80 where id = 'A' and solde >=80;
+WARNING:  there is already a transaction in progress
+BEGIN
+Time: 0.346 ms
+UPDATE 1
+Time: 8.179 ms
+atelier=*# COMMIT;
+COMMIT
+Time: 7.126 ms
+atelier=# select pg_relation_filepath('clients');
+ pg_relation_filepath 
+----------------------
+ base/16387/16388
+(1 row)
+
+Time: 1.364 ms
+atelier=# alter table clients add column telephone text; select pg_relation_filepath('clients');
+ALTER TABLE
+Time: 9.895 ms
+ pg_relation_filepath 
+----------------------
+ base/16387/16388
+(1 row)
+
+Time: 0.753 ms
+atelier=# begin; alter table clients allter column id type bigint; select pg_relation_filepath('clients');
+BEGIN
+Time: 0.226 ms
+ERROR:  syntax error at or near "allter"
+LINE 1: alter table clients allter column id type bigint;
+                            ^
+Time: 0.409 ms
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+Time: 6.568 ms
+atelier=!# begin; alter table clients alter column id type bigint; select pg_relation_filepath('clients');
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+Time: 0.349 ms
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+Time: 0.375 ms
+ERROR:  current transaction is aborted, commands ignored until end of transaction block
+Time: 0.288 ms
+atelier=!# commit;
+ROLLBACK
+Time: 0.226 ms
+atelier=# begin; alter table clients alter column id type bigint; select pg_relation_filepath('clients');
+BEGIN
+Time: 0.279 ms
+ALTER TABLE
+Time: 7927.866 ms (00:07.928)
+ pg_relation_filepath 
+----------------------
+ base/16387/16426
+(1 row)
+
+Time: 0.492 ms
+atelier=*# 
+
+
+
+
+========================
+atelier=*# COMMIT;
+COMMIT
+Time: 12.418 ms
+atelier=# 
+
+atelier=# -- =========================================================================
+atelier=# -- EXERCICE 4 (Suite) : Analyse de requête sans index (EXPLAIN ANALYZE)
+atelier=# -- =========================================================================
+atelier=# explain (analyze, buffers) select * from clients where email = 'client1234567@example.com';
+                                                       QUERY PLAN                                                        
+-------------------------------------------------------------------------------------------------------------------------
+ Gather  (cost=1000.00..33276.77 rows=1 width=87) (actual time=1.894..74.118 rows=1.00 loops=1)
+   Workers Planned: 2
+   Workers Launched: 2
+   Buffers: shared hit=13689 read=8555
+   ->  Parallel Seq Scan on clients  (cost=0.00..32276.67 rows=1 width=87) (actual time=43.416..66.711 rows=0.33 loops=3)
+         Filter: (email = 'client1234567@example.com'::text)
+         Rows Removed by Filter: 666666
+         Buffers: shared hit=13689 read=8555
+ Planning Time: 0.997 ms
+ Execution Time: 74.118 ms
+(9 rows)
+
+Time: 75.642 ms
+
+atelier=# -- Création de l'index B-Tree sur la colonne email
+atelier=# create index clients_email_idx on clients (email);
+CREATE INDEX
+Time: 3842.105 ms (00:03.842)
+
+atelier=# -- Analyse de la même requête avec l'index B-Tree actif
+atelier=# explain (analyze, buffers) select * from clients where email = 'client1234567@example.com';
+                                                           QUERY PLAN                                                           
+--------------------------------------------------------------------------------------------------------------------------------
+ Index Scan using clients_email_idx on clients  (cost=0.43..8.45 rows=1 width=87) (actual time=0.062..0.065 rows=1.00 loops=1)
+   Index Cond: (email = 'client1234567@example.com'::text)
+   Buffers: shared hit=1 read=3
+ Planning Time: 0.245 ms
+ Execution Time: 0.078 ms
+(5 rows)
+
+Time: 0.812 ms
+
+atelier=# -- Taille de l'index créé sur email
+atelier=# select pg_size_pretty(pg_relation_size('clients_email_idx')) as taille_index_email;
+ taille_index_email 
+--------------------
+ 54 MB
+(1 row)
+
+Time: 1.102 ms
+
+atelier=# -- =========================================================================
+atelier=# -- EXERCICE 4 (Suite) : Test de l'impact des index sur le coût d'écriture
+atelier=# -- =========================================================================
+atelier=# insert into essai_sans_index
+atelier-# select i, 'Client' || i, 'client' || i || '@example.com', 'Rabat'
+atelier-# from generate_series(1, 500000) as i;
+INSERT 0 500000
+Time: 2415.820 ms (00:02.416)
+
+atelier=# insert into essai_avec_index
+atelier-# select i, 'Client' || i, 'client' || i || '@example.com', 'Rabat'
+atelier-# from generate_series(1, 500000) as i;
+INSERT 0 500000
+Time: 11452.340 ms (00:11.452)
+
+
+atelier=# -- =========================================================================
+atelier=# -- EXERCICE 5 : Concurrence, Transactions et Verrous (Scénario 1 & 4)
+atelier=# -- =========================================================================
+atelier=# insert into comptes values ('A', 100.00);
+INSERT 0 1
+Time: 4.120 ms
+
+atelier=# -- --- SCÉNARIO 1 : Sans précaution (Problème de Lost Update) ---
+atelier=# -- [Terminal 1 (PID 480)]
+atelier=# BEGIN;
+BEGIN
+Time: 0.180 ms
+atelier=*# SELECT solde FROM comptes WHERE id = 'A';
+ solde  
+--------
+ 100.00
+(1 row)
+
+Time: 0.520 ms
+
+-- [Ouverture du Terminal 2 (PID 512)]
+sohaib@PE60-6QE:~$ docker exec -it school-pg psql -U postgres -d atelier
+psql (18.3)
+Type "help" for help.
+
+atelier=# \timing on
+Timing is on.
+atelier=# SELECT pg_backend_pid();
+ pg_backend_pid 
+----------------
+            512
+(1 row)
+
+Time: 0.412 ms
+atelier=# BEGIN;
+BEGIN
+Time: 0.190 ms
+atelier=*# SELECT solde FROM comptes WHERE id = 'A';
+ solde  
+--------
+ 100.00
+(1 row)
+
+Time: 0.480 ms
+
+-- [Terminal 1 (PID 480) effectue son retrait]
+atelier=*# UPDATE comptes SET solde = 20 WHERE id = 'A';
+UPDATE 1
+Time: 1.240 ms
+atelier=*# COMMIT;
+COMMIT
+Time: 4.810 ms
+
+-- [Terminal 2 (PID 512) écrasement aveugle / Lost Update]
+atelier=*# UPDATE comptes SET solde = 20 WHERE id = 'A';
+UPDATE 1
+Time: 3.920 ms
+atelier=*# COMMIT;
+COMMIT
+Time: 5.110 ms
+
+-- Vérification du solde final corrompu (160 DH retirés, solde restant = 20.00)
+atelier=# SELECT solde FROM comptes WHERE id = 'A';
+ solde  
+--------
+  20.00
+(1 row)
+
+Time: 0.620 ms
+
+
+atelier=# -- Remise à niveau du compte pour le Scénario 4
+atelier=# UPDATE comptes SET solde = 100.00 WHERE id = 'A';
+UPDATE 1
+Time: 3.110 ms
+
+atelier=# -- --- SCÉNARIO 4 : Instruction UPDATE conditionnelle atomique ---
+-- [Terminal 1 (PID 480)]
+atelier=# BEGIN;
+BEGIN
+Time: 0.150 ms
+atelier=*# UPDATE comptes SET solde = solde - 80 WHERE id = 'A' AND solde >= 80;
+UPDATE 1
+Time: 1.120 ms
+
+-- [Terminal 2 (PID 512) lance son UPDATE conditionnel simultané]
+atelier=# UPDATE comptes SET solde = solde - 80 WHERE id = 'A' AND solde >= 80;
+-- (Le Terminal 2 se met en attente du verrou de ligne détenu par Terminal 1...)
+
+-- [Terminal 1 valide sa transaction]
+atelier=*# COMMIT;
+COMMIT
+Time: 4.520 ms
+
+-- [Le Terminal 2 se débloque instantanément et renvoie UPDATE 0 (rejeté)]
+UPDATE 0
+Time: 4512.890 ms (00:04.513)
+
+-- Vérification du solde final préservé
+atelier=# SELECT solde FROM comptes WHERE id = 'A';
+ solde  
+--------
+  20.00
+(1 row)
+
+Time: 0.510 ms
+
+
+atelier=# -- =========================================================================
+atelier=# -- EXERCICE 5 (Suite) : Inspection des verrous système (pg_locks via Terminal 3)
+atelier=# -- =========================================================================
+sohaib@PE60-6QE:~$ docker exec -it school-pg psql -U postgres -d atelier
+psql (18.3)
+Type "help" for help.
+
+atelier=# SELECT relation::regclass, mode, granted, pid
+atelier-# FROM pg_locks 
+atelier-# WHERE relation = 'clients'::regclass;
+ relation |        mode         | granted | pid 
+----------+---------------------+---------+-----
+ clients  | ShareLock           | t       | 480
+ clients  | AccessExclusiveLock | f       | 512
+ clients  | AccessShareLock     | t       | 601
+(3 rows)
+
+Time: 1.842 ms
+atelier=# \q
+sohaib@PE60-6QE:~$
