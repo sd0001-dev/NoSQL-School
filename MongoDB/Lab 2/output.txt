@@ -1,0 +1,9 @@
+(.venv) PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Mongo> & 'd:\Etudiants\daoudi.sohaib\Documents\NoSQL\Mongo\.venv\Scripts\python.exe' '"d:/Etudiants/daoudi.sohaib/Documents/NoSQL/Mongo/Lab 2/atelier02-verifier.py"'
+Adresse:  mongodb://localhost:27017
+Ping:  {'ok': 1.0}
+server version:  8.0.34
+pymongo version:  4.19.0
+Insertion, _id : 6af35584cfa3354b9d050809
+Lecture : {'_id': ObjectId('6af35584cfa3354b9d050809'), 'text': 'hello from python'}
+Lecture : 1 document
+installation ok

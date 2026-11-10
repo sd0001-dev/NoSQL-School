@@ -1,0 +1,37 @@
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2026-11-10T14:18:39.407+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2026-11-10T14:18:40.592+00:00: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+   2026-11-10T14:18:40.593+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2026-11-10T14:18:40.593+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2026-11-10T14:18:40.593+00:00: We suggest setting the contents of sysfsFile to 0.
+   2026-11-10T14:18:40.593+00:00: We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.
+------
+
+test> db.version()
+8.0.34
+test> db.runCommand({ ping: 1})
+{ ok: 1 }
+test> show dbs
+admin                      40.00 KiB
+config                     72.00 KiB
+local                      72.00 KiB
+mongodbVSCodePlaygroundDB  40.00 KiB
+test> use essai
+switched to db essai
+essai> db.messages.insertOne({text: "hello", date: new Date()})
+{
+  acknowledged: true,
+  insertedId: ObjectId('6af32aac692f7f73be550a60')
+}
+essai> db.messages.find()
+[
+  {
+    _id: ObjectId('6af32aac692f7f73be550a60'),
+    text: 'hello',
+    date: ISODate('2026-11-10T14:31:08.625Z')
+  }
+]
+essai>
