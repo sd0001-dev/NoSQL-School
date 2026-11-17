@@ -1,0 +1,602 @@
+FLUSHDB
+HSET produit:P-001 libelle "Maison 1" categorie Maison prix 47 stock 13
+ZADD idx:produits:prix 47 produit:P-001
+SADD categorie:Maison produit:P-001
+HSET produit:P-002 libelle "Livres 2" categorie Livres prix 84 stock 26
+ZADD idx:produits:prix 84 produit:P-002
+SADD categorie:Livres produit:P-002
+HSET produit:P-003 libelle "Sport 3" categorie Sport prix 121 stock 39
+ZADD idx:produits:prix 121 produit:P-003
+SADD categorie:Sport produit:P-003
+HSET produit:P-004 libelle "Audio 4" categorie Audio prix 158 stock 2
+ZADD idx:produits:prix 158 produit:P-004
+SADD categorie:Audio produit:P-004
+HSET produit:P-005 libelle "Informatique 5" categorie Informatique prix 195 stock 15
+ZADD idx:produits:prix 195 produit:P-005
+SADD categorie:Informatique produit:P-005
+HSET produit:P-006 libelle "Maison 6" categorie Maison prix 232 stock 28
+ZADD idx:produits:prix 232 produit:P-006
+SADD categorie:Maison produit:P-006
+HSET produit:P-007 libelle "Livres 7" categorie Livres prix 269 stock 41
+ZADD idx:produits:prix 269 produit:P-007
+SADD categorie:Livres produit:P-007
+HSET produit:P-008 libelle "Sport 8" categorie Sport prix 306 stock 4
+ZADD idx:produits:prix 306 produit:P-008
+SADD categorie:Sport produit:P-008
+HSET produit:P-009 libelle "Audio 9" categorie Audio prix 343 stock 17
+ZADD idx:produits:prix 343 produit:P-009
+SADD categorie:Audio produit:P-009
+HSET produit:P-010 libelle "Informatique 10" categorie Informatique prix 380 stock 30
+ZADD idx:produits:prix 380 produit:P-010
+SADD categorie:Informatique produit:P-010
+HSET produit:P-011 libelle "Maison 11" categorie Maison prix 417 stock 43
+ZADD idx:produits:prix 417 produit:P-011
+SADD categorie:Maison produit:P-011
+HSET produit:P-012 libelle "Livres 12" categorie Livres prix 454 stock 6
+ZADD idx:produits:prix 454 produit:P-012
+SADD categorie:Livres produit:P-012
+HSET produit:P-013 libelle "Sport 13" categorie Sport prix 491 stock 19
+ZADD idx:produits:prix 491 produit:P-013
+SADD categorie:Sport produit:P-013
+HSET produit:P-014 libelle "Audio 14" categorie Audio prix 28 stock 32
+ZADD idx:produits:prix 28 produit:P-014
+SADD categorie:Audio produit:P-014
+HSET produit:P-015 libelle "Informatique 15" categorie Informatique prix 65 stock 45
+ZADD idx:produits:prix 65 produit:P-015
+SADD categorie:Informatique produit:P-015
+HSET produit:P-016 libelle "Maison 16" categorie Maison prix 102 stock 8
+ZADD idx:produits:prix 102 produit:P-016
+SADD categorie:Maison produit:P-016
+HSET produit:P-017 libelle "Livres 17" categorie Livres prix 139 stock 21
+ZADD idx:produits:prix 139 produit:P-017
+SADD categorie:Livres produit:P-017
+HSET produit:P-018 libelle "Sport 18" categorie Sport prix 176 stock 34
+ZADD idx:produits:prix 176 produit:P-018
+SADD categorie:Sport produit:P-018
+HSET produit:P-019 libelle "Audio 19" categorie Audio prix 213 stock 47
+ZADD idx:produits:prix 213 produit:P-019
+SADD categorie:Audio produit:P-019
+HSET produit:P-020 libelle "Informatique 20" categorie Informatique prix 250 stock 10
+ZADD idx:produits:prix 250 produit:P-020
+SADD categorie:Informatique produit:P-020
+HSET produit:P-021 libelle "Maison 21" categorie Maison prix 287 stock 23
+ZADD idx:produits:prix 287 produit:P-021
+SADD categorie:Maison produit:P-021
+HSET produit:P-022 libelle "Livres 22" categorie Livres prix 324 stock 36
+ZADD idx:produits:prix 324 produit:P-022
+SADD categorie:Livres produit:P-022
+HSET produit:P-023 libelle "Sport 23" categorie Sport prix 361 stock 49
+ZADD idx:produits:prix 361 produit:P-023
+SADD categorie:Sport produit:P-023
+HSET produit:P-024 libelle "Audio 24" categorie Audio prix 398 stock 12
+ZADD idx:produits:prix 398 produit:P-024
+SADD categorie:Audio produit:P-024
+HSET produit:P-025 libelle "Informatique 25" categorie Informatique prix 435 stock 25
+ZADD idx:produits:prix 435 produit:P-025
+SADD categorie:Informatique produit:P-025
+HSET produit:P-026 libelle "Maison 26" categorie Maison prix 472 stock 38
+ZADD idx:produits:prix 472 produit:P-026
+SADD categorie:Maison produit:P-026
+HSET produit:P-027 libelle "Livres 27" categorie Livres prix 509 stock 1
+ZADD idx:produits:prix 509 produit:P-027
+SADD categorie:Livres produit:P-027
+HSET produit:P-028 libelle "Sport 28" categorie Sport prix 46 stock 14
+ZADD idx:produits:prix 46 produit:P-028
+SADD categorie:Sport produit:P-028
+HSET produit:P-029 libelle "Audio 29" categorie Audio prix 83 stock 27
+ZADD idx:produits:prix 83 produit:P-029
+SADD categorie:Audio produit:P-029
+HSET produit:P-030 libelle "Informatique 30" categorie Informatique prix 120 stock 40
+ZADD idx:produits:prix 120 produit:P-030
+SADD categorie:Informatique produit:P-030
+HSET produit:P-031 libelle "Maison 31" categorie Maison prix 157 stock 3
+ZADD idx:produits:prix 157 produit:P-031
+SADD categorie:Maison produit:P-031
+HSET produit:P-032 libelle "Livres 32" categorie Livres prix 194 stock 16
+ZADD idx:produits:prix 194 produit:P-032
+SADD categorie:Livres produit:P-032
+HSET produit:P-033 libelle "Sport 33" categorie Sport prix 231 stock 29
+ZADD idx:produits:prix 231 produit:P-033
+SADD categorie:Sport produit:P-033
+HSET produit:P-034 libelle "Audio 34" categorie Audio prix 268 stock 42
+ZADD idx:produits:prix 268 produit:P-034
+SADD categorie:Audio produit:P-034
+HSET produit:P-035 libelle "Informatique 35" categorie Informatique prix 305 stock 5
+ZADD idx:produits:prix 305 produit:P-035
+SADD categorie:Informatique produit:P-035
+HSET produit:P-036 libelle "Maison 36" categorie Maison prix 342 stock 18
+ZADD idx:produits:prix 342 produit:P-036
+SADD categorie:Maison produit:P-036
+HSET produit:P-037 libelle "Livres 37" categorie Livres prix 379 stock 31
+ZADD idx:produits:prix 379 produit:P-037
+SADD categorie:Livres produit:P-037
+HSET produit:P-038 libelle "Sport 38" categorie Sport prix 416 stock 44
+ZADD idx:produits:prix 416 produit:P-038
+SADD categorie:Sport produit:P-038
+HSET produit:P-039 libelle "Audio 39" categorie Audio prix 453 stock 7
+ZADD idx:produits:prix 453 produit:P-039
+SADD categorie:Audio produit:P-039
+HSET produit:P-040 libelle "Informatique 40" categorie Informatique prix 490 stock 20
+ZADD idx:produits:prix 490 produit:P-040
+SADD categorie:Informatique produit:P-040
+HSET produit:P-041 libelle "Maison 41" categorie Maison prix 27 stock 33
+ZADD idx:produits:prix 27 produit:P-041
+SADD categorie:Maison produit:P-041
+HSET produit:P-042 libelle "Livres 42" categorie Livres prix 64 stock 46
+ZADD idx:produits:prix 64 produit:P-042
+SADD categorie:Livres produit:P-042
+HSET produit:P-043 libelle "Sport 43" categorie Sport prix 101 stock 9
+ZADD idx:produits:prix 101 produit:P-043
+SADD categorie:Sport produit:P-043
+HSET produit:P-044 libelle "Audio 44" categorie Audio prix 138 stock 22
+ZADD idx:produits:prix 138 produit:P-044
+SADD categorie:Audio produit:P-044
+HSET produit:P-045 libelle "Informatique 45" categorie Informatique prix 175 stock 35
+ZADD idx:produits:prix 175 produit:P-045
+SADD categorie:Informatique produit:P-045
+HSET produit:P-046 libelle "Maison 46" categorie Maison prix 212 stock 48
+ZADD idx:produits:prix 212 produit:P-046
+SADD categorie:Maison produit:P-046
+HSET produit:P-047 libelle "Livres 47" categorie Livres prix 249 stock 11
+ZADD idx:produits:prix 249 produit:P-047
+SADD categorie:Livres produit:P-047
+HSET produit:P-048 libelle "Sport 48" categorie Sport prix 286 stock 24
+ZADD idx:produits:prix 286 produit:P-048
+SADD categorie:Sport produit:P-048
+HSET produit:P-049 libelle "Audio 49" categorie Audio prix 323 stock 37
+ZADD idx:produits:prix 323 produit:P-049
+SADD categorie:Audio produit:P-049
+HSET produit:P-050 libelle "Informatique 50" categorie Informatique prix 360 stock 0
+ZADD idx:produits:prix 360 produit:P-050
+SADD categorie:Informatique produit:P-050
+HSET produit:P-051 libelle "Maison 51" categorie Maison prix 397 stock 13
+ZADD idx:produits:prix 397 produit:P-051
+SADD categorie:Maison produit:P-051
+HSET produit:P-052 libelle "Livres 52" categorie Livres prix 434 stock 26
+ZADD idx:produits:prix 434 produit:P-052
+SADD categorie:Livres produit:P-052
+HSET produit:P-053 libelle "Sport 53" categorie Sport prix 471 stock 39
+ZADD idx:produits:prix 471 produit:P-053
+SADD categorie:Sport produit:P-053
+HSET produit:P-054 libelle "Audio 54" categorie Audio prix 508 stock 2
+ZADD idx:produits:prix 508 produit:P-054
+SADD categorie:Audio produit:P-054
+HSET produit:P-055 libelle "Informatique 55" categorie Informatique prix 45 stock 15
+ZADD idx:produits:prix 45 produit:P-055
+SADD categorie:Informatique produit:P-055
+HSET produit:P-056 libelle "Maison 56" categorie Maison prix 82 stock 28
+ZADD idx:produits:prix 82 produit:P-056
+SADD categorie:Maison produit:P-056
+HSET produit:P-057 libelle "Livres 57" categorie Livres prix 119 stock 41
+ZADD idx:produits:prix 119 produit:P-057
+SADD categorie:Livres produit:P-057
+HSET produit:P-058 libelle "Sport 58" categorie Sport prix 156 stock 4
+ZADD idx:produits:prix 156 produit:P-058
+SADD categorie:Sport produit:P-058
+HSET produit:P-059 libelle "Audio 59" categorie Audio prix 193 stock 17
+ZADD idx:produits:prix 193 produit:P-059
+SADD categorie:Audio produit:P-059
+HSET produit:P-060 libelle "Informatique 60" categorie Informatique prix 230 stock 30
+ZADD idx:produits:prix 230 produit:P-060
+SADD categorie:Informatique produit:P-060
+HSET produit:P-061 libelle "Maison 61" categorie Maison prix 267 stock 43
+ZADD idx:produits:prix 267 produit:P-061
+SADD categorie:Maison produit:P-061
+HSET produit:P-062 libelle "Livres 62" categorie Livres prix 304 stock 6
+ZADD idx:produits:prix 304 produit:P-062
+SADD categorie:Livres produit:P-062
+HSET produit:P-063 libelle "Sport 63" categorie Sport prix 341 stock 19
+ZADD idx:produits:prix 341 produit:P-063
+SADD categorie:Sport produit:P-063
+HSET produit:P-064 libelle "Audio 64" categorie Audio prix 378 stock 32
+ZADD idx:produits:prix 378 produit:P-064
+SADD categorie:Audio produit:P-064
+HSET produit:P-065 libelle "Informatique 65" categorie Informatique prix 415 stock 45
+ZADD idx:produits:prix 415 produit:P-065
+SADD categorie:Informatique produit:P-065
+HSET produit:P-066 libelle "Maison 66" categorie Maison prix 452 stock 8
+ZADD idx:produits:prix 452 produit:P-066
+SADD categorie:Maison produit:P-066
+HSET produit:P-067 libelle "Livres 67" categorie Livres prix 489 stock 21
+ZADD idx:produits:prix 489 produit:P-067
+SADD categorie:Livres produit:P-067
+HSET produit:P-068 libelle "Sport 68" categorie Sport prix 26 stock 34
+ZADD idx:produits:prix 26 produit:P-068
+SADD categorie:Sport produit:P-068
+HSET produit:P-069 libelle "Audio 69" categorie Audio prix 63 stock 47
+ZADD idx:produits:prix 63 produit:P-069
+SADD categorie:Audio produit:P-069
+HSET produit:P-070 libelle "Informatique 70" categorie Informatique prix 100 stock 10
+ZADD idx:produits:prix 100 produit:P-070
+SADD categorie:Informatique produit:P-070
+HSET produit:P-071 libelle "Maison 71" categorie Maison prix 137 stock 23
+ZADD idx:produits:prix 137 produit:P-071
+SADD categorie:Maison produit:P-071
+HSET produit:P-072 libelle "Livres 72" categorie Livres prix 174 stock 36
+ZADD idx:produits:prix 174 produit:P-072
+SADD categorie:Livres produit:P-072
+HSET produit:P-073 libelle "Sport 73" categorie Sport prix 211 stock 49
+ZADD idx:produits:prix 211 produit:P-073
+SADD categorie:Sport produit:P-073
+HSET produit:P-074 libelle "Audio 74" categorie Audio prix 248 stock 12
+ZADD idx:produits:prix 248 produit:P-074
+SADD categorie:Audio produit:P-074
+HSET produit:P-075 libelle "Informatique 75" categorie Informatique prix 285 stock 25
+ZADD idx:produits:prix 285 produit:P-075
+SADD categorie:Informatique produit:P-075
+HSET produit:P-076 libelle "Maison 76" categorie Maison prix 322 stock 38
+ZADD idx:produits:prix 322 produit:P-076
+SADD categorie:Maison produit:P-076
+HSET produit:P-077 libelle "Livres 77" categorie Livres prix 359 stock 1
+ZADD idx:produits:prix 359 produit:P-077
+SADD categorie:Livres produit:P-077
+HSET produit:P-078 libelle "Sport 78" categorie Sport prix 396 stock 14
+ZADD idx:produits:prix 396 produit:P-078
+SADD categorie:Sport produit:P-078
+HSET produit:P-079 libelle "Audio 79" categorie Audio prix 433 stock 27
+ZADD idx:produits:prix 433 produit:P-079
+SADD categorie:Audio produit:P-079
+HSET produit:P-080 libelle "Informatique 80" categorie Informatique prix 470 stock 40
+ZADD idx:produits:prix 470 produit:P-080
+SADD categorie:Informatique produit:P-080
+HSET produit:P-081 libelle "Maison 81" categorie Maison prix 507 stock 3
+ZADD idx:produits:prix 507 produit:P-081
+SADD categorie:Maison produit:P-081
+HSET produit:P-082 libelle "Livres 82" categorie Livres prix 44 stock 16
+ZADD idx:produits:prix 44 produit:P-082
+SADD categorie:Livres produit:P-082
+HSET produit:P-083 libelle "Sport 83" categorie Sport prix 81 stock 29
+ZADD idx:produits:prix 81 produit:P-083
+SADD categorie:Sport produit:P-083
+HSET produit:P-084 libelle "Audio 84" categorie Audio prix 118 stock 42
+ZADD idx:produits:prix 118 produit:P-084
+SADD categorie:Audio produit:P-084
+HSET produit:P-085 libelle "Informatique 85" categorie Informatique prix 155 stock 5
+ZADD idx:produits:prix 155 produit:P-085
+SADD categorie:Informatique produit:P-085
+HSET produit:P-086 libelle "Maison 86" categorie Maison prix 192 stock 18
+ZADD idx:produits:prix 192 produit:P-086
+SADD categorie:Maison produit:P-086
+HSET produit:P-087 libelle "Livres 87" categorie Livres prix 229 stock 31
+ZADD idx:produits:prix 229 produit:P-087
+SADD categorie:Livres produit:P-087
+HSET produit:P-088 libelle "Sport 88" categorie Sport prix 266 stock 44
+ZADD idx:produits:prix 266 produit:P-088
+SADD categorie:Sport produit:P-088
+HSET produit:P-089 libelle "Audio 89" categorie Audio prix 303 stock 7
+ZADD idx:produits:prix 303 produit:P-089
+SADD categorie:Audio produit:P-089
+HSET produit:P-090 libelle "Informatique 90" categorie Informatique prix 340 stock 20
+ZADD idx:produits:prix 340 produit:P-090
+SADD categorie:Informatique produit:P-090
+HSET produit:P-091 libelle "Maison 91" categorie Maison prix 377 stock 33
+ZADD idx:produits:prix 377 produit:P-091
+SADD categorie:Maison produit:P-091
+HSET produit:P-092 libelle "Livres 92" categorie Livres prix 414 stock 46
+ZADD idx:produits:prix 414 produit:P-092
+SADD categorie:Livres produit:P-092
+HSET produit:P-093 libelle "Sport 93" categorie Sport prix 451 stock 9
+ZADD idx:produits:prix 451 produit:P-093
+SADD categorie:Sport produit:P-093
+HSET produit:P-094 libelle "Audio 94" categorie Audio prix 488 stock 22
+ZADD idx:produits:prix 488 produit:P-094
+SADD categorie:Audio produit:P-094
+HSET produit:P-095 libelle "Informatique 95" categorie Informatique prix 25 stock 35
+ZADD idx:produits:prix 25 produit:P-095
+SADD categorie:Informatique produit:P-095
+HSET produit:P-096 libelle "Maison 96" categorie Maison prix 62 stock 48
+ZADD idx:produits:prix 62 produit:P-096
+SADD categorie:Maison produit:P-096
+HSET produit:P-097 libelle "Livres 97" categorie Livres prix 99 stock 11
+ZADD idx:produits:prix 99 produit:P-097
+SADD categorie:Livres produit:P-097
+HSET produit:P-098 libelle "Sport 98" categorie Sport prix 136 stock 24
+ZADD idx:produits:prix 136 produit:P-098
+SADD categorie:Sport produit:P-098
+HSET produit:P-099 libelle "Audio 99" categorie Audio prix 173 stock 37
+ZADD idx:produits:prix 173 produit:P-099
+SADD categorie:Audio produit:P-099
+HSET produit:P-100 libelle "Informatique 100" categorie Informatique prix 210 stock 0
+ZADD idx:produits:prix 210 produit:P-100
+SADD categorie:Informatique produit:P-100
+HSET produit:P-101 libelle "Maison 101" categorie Maison prix 247 stock 13
+ZADD idx:produits:prix 247 produit:P-101
+SADD categorie:Maison produit:P-101
+HSET produit:P-102 libelle "Livres 102" categorie Livres prix 284 stock 26
+ZADD idx:produits:prix 284 produit:P-102
+SADD categorie:Livres produit:P-102
+HSET produit:P-103 libelle "Sport 103" categorie Sport prix 321 stock 39
+ZADD idx:produits:prix 321 produit:P-103
+SADD categorie:Sport produit:P-103
+HSET produit:P-104 libelle "Audio 104" categorie Audio prix 358 stock 2
+ZADD idx:produits:prix 358 produit:P-104
+SADD categorie:Audio produit:P-104
+HSET produit:P-105 libelle "Informatique 105" categorie Informatique prix 395 stock 15
+ZADD idx:produits:prix 395 produit:P-105
+SADD categorie:Informatique produit:P-105
+HSET produit:P-106 libelle "Maison 106" categorie Maison prix 432 stock 28
+ZADD idx:produits:prix 432 produit:P-106
+SADD categorie:Maison produit:P-106
+HSET produit:P-107 libelle "Livres 107" categorie Livres prix 469 stock 41
+ZADD idx:produits:prix 469 produit:P-107
+SADD categorie:Livres produit:P-107
+HSET produit:P-108 libelle "Sport 108" categorie Sport prix 506 stock 4
+ZADD idx:produits:prix 506 produit:P-108
+SADD categorie:Sport produit:P-108
+HSET produit:P-109 libelle "Audio 109" categorie Audio prix 43 stock 17
+ZADD idx:produits:prix 43 produit:P-109
+SADD categorie:Audio produit:P-109
+HSET produit:P-110 libelle "Informatique 110" categorie Informatique prix 80 stock 30
+ZADD idx:produits:prix 80 produit:P-110
+SADD categorie:Informatique produit:P-110
+HSET produit:P-111 libelle "Maison 111" categorie Maison prix 117 stock 43
+ZADD idx:produits:prix 117 produit:P-111
+SADD categorie:Maison produit:P-111
+HSET produit:P-112 libelle "Livres 112" categorie Livres prix 154 stock 6
+ZADD idx:produits:prix 154 produit:P-112
+SADD categorie:Livres produit:P-112
+HSET produit:P-113 libelle "Sport 113" categorie Sport prix 191 stock 19
+ZADD idx:produits:prix 191 produit:P-113
+SADD categorie:Sport produit:P-113
+HSET produit:P-114 libelle "Audio 114" categorie Audio prix 228 stock 32
+ZADD idx:produits:prix 228 produit:P-114
+SADD categorie:Audio produit:P-114
+HSET produit:P-115 libelle "Informatique 115" categorie Informatique prix 265 stock 45
+ZADD idx:produits:prix 265 produit:P-115
+SADD categorie:Informatique produit:P-115
+HSET produit:P-116 libelle "Maison 116" categorie Maison prix 302 stock 8
+ZADD idx:produits:prix 302 produit:P-116
+SADD categorie:Maison produit:P-116
+HSET produit:P-117 libelle "Livres 117" categorie Livres prix 339 stock 21
+ZADD idx:produits:prix 339 produit:P-117
+SADD categorie:Livres produit:P-117
+HSET produit:P-118 libelle "Sport 118" categorie Sport prix 376 stock 34
+ZADD idx:produits:prix 376 produit:P-118
+SADD categorie:Sport produit:P-118
+HSET produit:P-119 libelle "Audio 119" categorie Audio prix 413 stock 47
+ZADD idx:produits:prix 413 produit:P-119
+SADD categorie:Audio produit:P-119
+HSET produit:P-120 libelle "Informatique 120" categorie Informatique prix 450 stock 10
+ZADD idx:produits:prix 450 produit:P-120
+SADD categorie:Informatique produit:P-120
+HSET produit:P-121 libelle "Maison 121" categorie Maison prix 487 stock 23
+ZADD idx:produits:prix 487 produit:P-121
+SADD categorie:Maison produit:P-121
+HSET produit:P-122 libelle "Livres 122" categorie Livres prix 24 stock 36
+ZADD idx:produits:prix 24 produit:P-122
+SADD categorie:Livres produit:P-122
+HSET produit:P-123 libelle "Sport 123" categorie Sport prix 61 stock 49
+ZADD idx:produits:prix 61 produit:P-123
+SADD categorie:Sport produit:P-123
+HSET produit:P-124 libelle "Audio 124" categorie Audio prix 98 stock 12
+ZADD idx:produits:prix 98 produit:P-124
+SADD categorie:Audio produit:P-124
+HSET produit:P-125 libelle "Informatique 125" categorie Informatique prix 135 stock 25
+ZADD idx:produits:prix 135 produit:P-125
+SADD categorie:Informatique produit:P-125
+HSET produit:P-126 libelle "Maison 126" categorie Maison prix 172 stock 38
+ZADD idx:produits:prix 172 produit:P-126
+SADD categorie:Maison produit:P-126
+HSET produit:P-127 libelle "Livres 127" categorie Livres prix 209 stock 1
+ZADD idx:produits:prix 209 produit:P-127
+SADD categorie:Livres produit:P-127
+HSET produit:P-128 libelle "Sport 128" categorie Sport prix 246 stock 14
+ZADD idx:produits:prix 246 produit:P-128
+SADD categorie:Sport produit:P-128
+HSET produit:P-129 libelle "Audio 129" categorie Audio prix 283 stock 27
+ZADD idx:produits:prix 283 produit:P-129
+SADD categorie:Audio produit:P-129
+HSET produit:P-130 libelle "Informatique 130" categorie Informatique prix 320 stock 40
+ZADD idx:produits:prix 320 produit:P-130
+SADD categorie:Informatique produit:P-130
+HSET produit:P-131 libelle "Maison 131" categorie Maison prix 357 stock 3
+ZADD idx:produits:prix 357 produit:P-131
+SADD categorie:Maison produit:P-131
+HSET produit:P-132 libelle "Livres 132" categorie Livres prix 394 stock 16
+ZADD idx:produits:prix 394 produit:P-132
+SADD categorie:Livres produit:P-132
+HSET produit:P-133 libelle "Sport 133" categorie Sport prix 431 stock 29
+ZADD idx:produits:prix 431 produit:P-133
+SADD categorie:Sport produit:P-133
+HSET produit:P-134 libelle "Audio 134" categorie Audio prix 468 stock 42
+ZADD idx:produits:prix 468 produit:P-134
+SADD categorie:Audio produit:P-134
+HSET produit:P-135 libelle "Informatique 135" categorie Informatique prix 505 stock 5
+ZADD idx:produits:prix 505 produit:P-135
+SADD categorie:Informatique produit:P-135
+HSET produit:P-136 libelle "Maison 136" categorie Maison prix 42 stock 18
+ZADD idx:produits:prix 42 produit:P-136
+SADD categorie:Maison produit:P-136
+HSET produit:P-137 libelle "Livres 137" categorie Livres prix 79 stock 31
+ZADD idx:produits:prix 79 produit:P-137
+SADD categorie:Livres produit:P-137
+HSET produit:P-138 libelle "Sport 138" categorie Sport prix 116 stock 44
+ZADD idx:produits:prix 116 produit:P-138
+SADD categorie:Sport produit:P-138
+HSET produit:P-139 libelle "Audio 139" categorie Audio prix 153 stock 7
+ZADD idx:produits:prix 153 produit:P-139
+SADD categorie:Audio produit:P-139
+HSET produit:P-140 libelle "Informatique 140" categorie Informatique prix 190 stock 20
+ZADD idx:produits:prix 190 produit:P-140
+SADD categorie:Informatique produit:P-140
+HSET produit:P-141 libelle "Maison 141" categorie Maison prix 227 stock 33
+ZADD idx:produits:prix 227 produit:P-141
+SADD categorie:Maison produit:P-141
+HSET produit:P-142 libelle "Livres 142" categorie Livres prix 264 stock 46
+ZADD idx:produits:prix 264 produit:P-142
+SADD categorie:Livres produit:P-142
+HSET produit:P-143 libelle "Sport 143" categorie Sport prix 301 stock 9
+ZADD idx:produits:prix 301 produit:P-143
+SADD categorie:Sport produit:P-143
+HSET produit:P-144 libelle "Audio 144" categorie Audio prix 338 stock 22
+ZADD idx:produits:prix 338 produit:P-144
+SADD categorie:Audio produit:P-144
+HSET produit:P-145 libelle "Informatique 145" categorie Informatique prix 375 stock 35
+ZADD idx:produits:prix 375 produit:P-145
+SADD categorie:Informatique produit:P-145
+HSET produit:P-146 libelle "Maison 146" categorie Maison prix 412 stock 48
+ZADD idx:produits:prix 412 produit:P-146
+SADD categorie:Maison produit:P-146
+HSET produit:P-147 libelle "Livres 147" categorie Livres prix 449 stock 11
+ZADD idx:produits:prix 449 produit:P-147
+SADD categorie:Livres produit:P-147
+HSET produit:P-148 libelle "Sport 148" categorie Sport prix 486 stock 24
+ZADD idx:produits:prix 486 produit:P-148
+SADD categorie:Sport produit:P-148
+HSET produit:P-149 libelle "Audio 149" categorie Audio prix 23 stock 37
+ZADD idx:produits:prix 23 produit:P-149
+SADD categorie:Audio produit:P-149
+HSET produit:P-150 libelle "Informatique 150" categorie Informatique prix 60 stock 0
+ZADD idx:produits:prix 60 produit:P-150
+SADD categorie:Informatique produit:P-150
+HSET produit:P-151 libelle "Maison 151" categorie Maison prix 97 stock 13
+ZADD idx:produits:prix 97 produit:P-151
+SADD categorie:Maison produit:P-151
+HSET produit:P-152 libelle "Livres 152" categorie Livres prix 134 stock 26
+ZADD idx:produits:prix 134 produit:P-152
+SADD categorie:Livres produit:P-152
+HSET produit:P-153 libelle "Sport 153" categorie Sport prix 171 stock 39
+ZADD idx:produits:prix 171 produit:P-153
+SADD categorie:Sport produit:P-153
+HSET produit:P-154 libelle "Audio 154" categorie Audio prix 208 stock 2
+ZADD idx:produits:prix 208 produit:P-154
+SADD categorie:Audio produit:P-154
+HSET produit:P-155 libelle "Informatique 155" categorie Informatique prix 245 stock 15
+ZADD idx:produits:prix 245 produit:P-155
+SADD categorie:Informatique produit:P-155
+HSET produit:P-156 libelle "Maison 156" categorie Maison prix 282 stock 28
+ZADD idx:produits:prix 282 produit:P-156
+SADD categorie:Maison produit:P-156
+HSET produit:P-157 libelle "Livres 157" categorie Livres prix 319 stock 41
+ZADD idx:produits:prix 319 produit:P-157
+SADD categorie:Livres produit:P-157
+HSET produit:P-158 libelle "Sport 158" categorie Sport prix 356 stock 4
+ZADD idx:produits:prix 356 produit:P-158
+SADD categorie:Sport produit:P-158
+HSET produit:P-159 libelle "Audio 159" categorie Audio prix 393 stock 17
+ZADD idx:produits:prix 393 produit:P-159
+SADD categorie:Audio produit:P-159
+HSET produit:P-160 libelle "Informatique 160" categorie Informatique prix 430 stock 30
+ZADD idx:produits:prix 430 produit:P-160
+SADD categorie:Informatique produit:P-160
+HSET produit:P-161 libelle "Maison 161" categorie Maison prix 467 stock 43
+ZADD idx:produits:prix 467 produit:P-161
+SADD categorie:Maison produit:P-161
+HSET produit:P-162 libelle "Livres 162" categorie Livres prix 504 stock 6
+ZADD idx:produits:prix 504 produit:P-162
+SADD categorie:Livres produit:P-162
+HSET produit:P-163 libelle "Sport 163" categorie Sport prix 41 stock 19
+ZADD idx:produits:prix 41 produit:P-163
+SADD categorie:Sport produit:P-163
+HSET produit:P-164 libelle "Audio 164" categorie Audio prix 78 stock 32
+ZADD idx:produits:prix 78 produit:P-164
+SADD categorie:Audio produit:P-164
+HSET produit:P-165 libelle "Informatique 165" categorie Informatique prix 115 stock 45
+ZADD idx:produits:prix 115 produit:P-165
+SADD categorie:Informatique produit:P-165
+HSET produit:P-166 libelle "Maison 166" categorie Maison prix 152 stock 8
+ZADD idx:produits:prix 152 produit:P-166
+SADD categorie:Maison produit:P-166
+HSET produit:P-167 libelle "Livres 167" categorie Livres prix 189 stock 21
+ZADD idx:produits:prix 189 produit:P-167
+SADD categorie:Livres produit:P-167
+HSET produit:P-168 libelle "Sport 168" categorie Sport prix 226 stock 34
+ZADD idx:produits:prix 226 produit:P-168
+SADD categorie:Sport produit:P-168
+HSET produit:P-169 libelle "Audio 169" categorie Audio prix 263 stock 47
+ZADD idx:produits:prix 263 produit:P-169
+SADD categorie:Audio produit:P-169
+HSET produit:P-170 libelle "Informatique 170" categorie Informatique prix 300 stock 10
+ZADD idx:produits:prix 300 produit:P-170
+SADD categorie:Informatique produit:P-170
+HSET produit:P-171 libelle "Maison 171" categorie Maison prix 337 stock 23
+ZADD idx:produits:prix 337 produit:P-171
+SADD categorie:Maison produit:P-171
+HSET produit:P-172 libelle "Livres 172" categorie Livres prix 374 stock 36
+ZADD idx:produits:prix 374 produit:P-172
+SADD categorie:Livres produit:P-172
+HSET produit:P-173 libelle "Sport 173" categorie Sport prix 411 stock 49
+ZADD idx:produits:prix 411 produit:P-173
+SADD categorie:Sport produit:P-173
+HSET produit:P-174 libelle "Audio 174" categorie Audio prix 448 stock 12
+ZADD idx:produits:prix 448 produit:P-174
+SADD categorie:Audio produit:P-174
+HSET produit:P-175 libelle "Informatique 175" categorie Informatique prix 485 stock 25
+ZADD idx:produits:prix 485 produit:P-175
+SADD categorie:Informatique produit:P-175
+HSET produit:P-176 libelle "Maison 176" categorie Maison prix 22 stock 38
+ZADD idx:produits:prix 22 produit:P-176
+SADD categorie:Maison produit:P-176
+HSET produit:P-177 libelle "Livres 177" categorie Livres prix 59 stock 1
+ZADD idx:produits:prix 59 produit:P-177
+SADD categorie:Livres produit:P-177
+HSET produit:P-178 libelle "Sport 178" categorie Sport prix 96 stock 14
+ZADD idx:produits:prix 96 produit:P-178
+SADD categorie:Sport produit:P-178
+HSET produit:P-179 libelle "Audio 179" categorie Audio prix 133 stock 27
+ZADD idx:produits:prix 133 produit:P-179
+SADD categorie:Audio produit:P-179
+HSET produit:P-180 libelle "Informatique 180" categorie Informatique prix 170 stock 40
+ZADD idx:produits:prix 170 produit:P-180
+SADD categorie:Informatique produit:P-180
+HSET produit:P-181 libelle "Maison 181" categorie Maison prix 207 stock 3
+ZADD idx:produits:prix 207 produit:P-181
+SADD categorie:Maison produit:P-181
+HSET produit:P-182 libelle "Livres 182" categorie Livres prix 244 stock 16
+ZADD idx:produits:prix 244 produit:P-182
+SADD categorie:Livres produit:P-182
+HSET produit:P-183 libelle "Sport 183" categorie Sport prix 281 stock 29
+ZADD idx:produits:prix 281 produit:P-183
+SADD categorie:Sport produit:P-183
+HSET produit:P-184 libelle "Audio 184" categorie Audio prix 318 stock 42
+ZADD idx:produits:prix 318 produit:P-184
+SADD categorie:Audio produit:P-184
+HSET produit:P-185 libelle "Informatique 185" categorie Informatique prix 355 stock 5
+ZADD idx:produits:prix 355 produit:P-185
+SADD categorie:Informatique produit:P-185
+HSET produit:P-186 libelle "Maison 186" categorie Maison prix 392 stock 18
+ZADD idx:produits:prix 392 produit:P-186
+SADD categorie:Maison produit:P-186
+HSET produit:P-187 libelle "Livres 187" categorie Livres prix 429 stock 31
+ZADD idx:produits:prix 429 produit:P-187
+SADD categorie:Livres produit:P-187
+HSET produit:P-188 libelle "Sport 188" categorie Sport prix 466 stock 44
+ZADD idx:produits:prix 466 produit:P-188
+SADD categorie:Sport produit:P-188
+HSET produit:P-189 libelle "Audio 189" categorie Audio prix 503 stock 7
+ZADD idx:produits:prix 503 produit:P-189
+SADD categorie:Audio produit:P-189
+HSET produit:P-190 libelle "Informatique 190" categorie Informatique prix 40 stock 20
+ZADD idx:produits:prix 40 produit:P-190
+SADD categorie:Informatique produit:P-190
+HSET produit:P-191 libelle "Maison 191" categorie Maison prix 77 stock 33
+ZADD idx:produits:prix 77 produit:P-191
+SADD categorie:Maison produit:P-191
+HSET produit:P-192 libelle "Livres 192" categorie Livres prix 114 stock 46
+ZADD idx:produits:prix 114 produit:P-192
+SADD categorie:Livres produit:P-192
+HSET produit:P-193 libelle "Sport 193" categorie Sport prix 151 stock 9
+ZADD idx:produits:prix 151 produit:P-193
+SADD categorie:Sport produit:P-193
+HSET produit:P-194 libelle "Audio 194" categorie Audio prix 188 stock 22
+ZADD idx:produits:prix 188 produit:P-194
+SADD categorie:Audio produit:P-194
+HSET produit:P-195 libelle "Informatique 195" categorie Informatique prix 225 stock 35
+ZADD idx:produits:prix 225 produit:P-195
+SADD categorie:Informatique produit:P-195
+HSET produit:P-196 libelle "Maison 196" categorie Maison prix 262 stock 48
+ZADD idx:produits:prix 262 produit:P-196
+SADD categorie:Maison produit:P-196
+HSET produit:P-197 libelle "Livres 197" categorie Livres prix 299 stock 11
+ZADD idx:produits:prix 299 produit:P-197
+SADD categorie:Livres produit:P-197
+HSET produit:P-198 libelle "Sport 198" categorie Sport prix 336 stock 24
+ZADD idx:produits:prix 336 produit:P-198
+SADD categorie:Sport produit:P-198
+HSET produit:P-199 libelle "Audio 199" categorie Audio prix 373 stock 37
+ZADD idx:produits:prix 373 produit:P-199
+SADD categorie:Audio produit:P-199
+HSET produit:P-200 libelle "Informatique 200" categorie Informatique prix 410 stock 0
+ZADD idx:produits:prix 410 produit:P-200
+SADD categorie:Informatique produit:P-200
+DBSIZE

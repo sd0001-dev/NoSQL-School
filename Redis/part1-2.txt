@@ -1,0 +1,2785 @@
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> dir
+
+
+    Directory: D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        11/17/2026   2:29 PM         411289 atelier05-redis.pdf
+-a----        11/17/2026   2:50 PM          30679 donnees-redis.txt
+-a----        11/17/2026   2:50 PM            329 vendre.lua
+
+
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker cp .\donnees-redis.txt redis:/tmp/
+Access is denied.
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker cp /mnt/d/etudiants/daoudi.sohaib/documents/nosql/redis/donnees-redis.txt redis:/tmp/
+GetFileAttributesEx D:\mnt: The system cannot find the file specified.
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker cp /mnt/d/Etudiants/daoudi.sohaib/Documents/nosql/redis/donnees-redis.txt redis:/tmp/
+GetFileAttributesEx D:\mnt: The system cannot find the file specified.
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker cp \mnt\d\Etudiants\daoudi.sohaib\Documents\nosql\redis\donnees-redis.txt redis:/tmp/
+GetFileAttributesEx D:\mnt: The system cannot find the file specified.
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> cd \mnt\d\Etudiants\daoudi.sohaib\Documents\nosql\redis\donnees-redis.txt
+cd : Cannot find path 'D:\mnt\d\Etudiants\daoudi.sohaib\Documents\nosql\redis\donnees-redis.txt'
+because it does not exist.
+At line:1 char:1
++ cd \mnt\d\Etudiants\daoudi.sohaib\Documents\nosql\redis\donnees-redis ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\mnt\d\Etudia...nnees-redis.txt:String) [Set-Locati
+   on], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Common Commands:
+  run         Create and run a new container from an image
+  exec        Execute a command in a running container
+  ps          List containers
+  build       Build an image from a Dockerfile
+  bake        Build from a file
+  pull        Download an image from a registry
+  push        Upload an image to a registry
+  images      List images
+  login       Authenticate to a registry
+  logout      Log out from a registry
+  search      Search Docker Hub for images
+  version     Show the Docker version information
+  info        Display system-wide information
+
+Management Commands:
+  agent*      Docker AI Agent Runner
+  ai*         Docker AI Agent - Ask Gordon
+  builder     Manage builds
+  buildx*     Docker Buildx
+  compose*    Docker Compose
+  container   Manage containers
+  context     Manage contexts
+  debug*      Get a shell into any image or container
+  desktop*    Docker Desktop commands
+  dhi*        CLI for managing Docker Hardened Images
+  extension*  Manages Docker extensions
+  image       Manage images
+  init*       Creates Docker-related starter files for your project
+  manifest    Manage Docker image manifests and manifest lists
+  mcp*        Docker MCP Plugin
+  model*      Docker Model Runner
+  network     Manage networks
+  offload*    Docker Offload
+  pass*       Docker Pass Secrets Manager Plugin (beta)
+  plugin      Manage plugins
+  scout*      Docker Scout
+  system      Manage Docker
+  volume      Manage volumes
+
+Swarm Commands:
+  swarm       Manage Swarm
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Global Options:
+      --cloud string[="default"]   Use a cloud context, provisioning it
+                                   if necessary (optionally --cloud=NAME)
+      --config string              Location of client config files
+                                   (default
+                                   "C:\\Users\\daoudi.sohaib\\.docker")
+  -c, --context string             Name of the context to use to connect
+                                   to the daemon (overrides DOCKER_HOST
+                                   env var and default context set with
+                                   "docker context use")
+  -D, --debug                      Enable debug mode
+  -H, --host string                Daemon socket to connect to
+  -l, --log-level string           Set the logging level ("debug",
+                                   "info", "warn", "error", "fatal")
+                                   (default "info")
+      --tls                        Use TLS; implied by --tlsverify
+      --tlscacert string           Trust certs signed only by this CA
+                                   (default
+                                   "C:\\Users\\daoudi.sohaib\\.docker\\ca.pem")
+      --tlscert string             Path to TLS certificate file (default
+                                   "C:\\Users\\daoudi.sohaib\\.docker\\cert.pem")
+      --tlskey string              Path to TLS key file (default
+                                   "C:\\Users\\daoudi.sohaib\\.docker\\key.pem")
+      --tlsverify                  Use TLS and verify the remote
+  -v, --version                    Print version information and quit
+
+Run 'docker COMMAND --help' for more information on a command.
+
+For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+e41d361de919   redis:8   "docker-entrypoint.s…"   23 minutes ago   Up 23 minutes   0.0.0.0:6379->6379/tcp, [::]:6379->6379/tcp   redis
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     docker exec -it redis redis-cli
+127.0.0.1:6379> DBSIZE
+(integer) 206
+127.0.0.1:6379> TYPE produit:P-001
+hash
+127.0.0.1:6379> TYPE idx:produits:prix
+zset
+127.0.0.1:6379> TYPE categorie:Livres
+set
+127.0.0.1:6379> SET test 1
+(error) ERR unknown command 'SET', with args beginning with: 'test' '1'
+127.0.0.1:6379> dbsize
+(integer) 206
+127.0.0.1:6379> exists test
+(integer) 0
+127.0.0.1:6379> set test 1
+OK
+127.0.0.1:6379> exists test
+(integer) 1
+127.0.0.1:6379> SET vues:produit:P-003 0
+OK
+127.0.0.1:6379> INCR vues:produit:P-003
+(integer) 1
+127.0.0.1:6379> INCR vues:produit:P-003
+(integer) 2
+127.0.0.1:6379> INCRBY vues:produit:P-003 10
+(integer) 12
+127.0.0.1:6379> GET vues:produit:P-003MSET visites:2026-09-27 1200 visites:2026-09-28 1350
+(error) ERR wrong number of arguments for 'get' command
+127.0.0.1:6379> MGET visites:2026-09-27 visites:2026-09-28 visites:2026-09-29
+1) (nil)
+2) (nil)
+3) (nil)
+127.0.0.1:6379> INCR produit:P-003
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+127.0.0.1:6379> GET produit:P-003
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+127.0.0.1:6379> HGETALL produit:P-003
+1) "libelle"
+2) "Sport 3"
+3) "categorie"
+4) "Sport"
+5) "prix"
+6) "121"
+7) "stock"
+8) "39"
+127.0.0.1:6379> HINCRBY produit:P-003 stock -1
+(integer) 38
+127.0.0.1:6379> TTL verrou:commande:1041
+(integer) -2
+127.0.0.1:6379> GET verrou:commande:1041
+(nil)
+127.0.0.1:6379> HGETALL produit:P-003
+1) "libelle"
+2) "Sport 3"
+3) "categorie"
+4) "Sport"
+5) "prix"
+6) "121"
+7) "stock"
+8) "38"
+127.0.0.1:6379> HMGET produit:P-003 libelle stock
+1) "Sport 3"
+2) "38"
+127.0.0.1:6379> HINCRBY produit:P-003 stock -1
+(integer) 37
+127.0.0.1:6379> HINCRBY panier:8421 produit:P-003 1
+(integer) 1
+127.0.0.1:6379> HINCRBY panier:8421 produit:P-003 2
+(integer) 3
+127.0.0.1:6379> HINCRBY panier:8421 produit:P-050 1
+(integer) 1
+127.0.0.1:6379> HSET panier:8421 produit:P-003 1 produit:P-050 1
+(integer) 0
+127.0.0.1:6379> HGETALL panier:8421
+1) "produit:P-003"
+2) "1"
+3) "produit:P-050"
+4) "1"
+127.0.0.1:6379> HLEN panier:8421
+(integer) 2
+127.0.0.1:6379> HDEL panier:8421 produit:P-050
+(integer) 1
+127.0.0.1:6379> HGETALL produit:P-050
+1) "libelle"
+2) "Informatique 50"
+3) "categorie"
+4) "Informatique"
+5) "prix"
+6) "360"
+7) "stock"
+8) "0"
+127.0.0.1:6379> HGET produit:P-050 stock
+"0"
+127.0.0.1:6379> EXPIRE panier:8421 604800
+(integer) 1
+127.0.0.1:6379> TTL panier:8421
+(integer) 604785
+127.0.0.1:6379> HINCRBY panier:8421 produit:P-003 1
+(integer) 2
+127.0.0.1:6379> EXPIRE panier:8421 604800
+(integer) 1
+127.0.0.1:6379> MULTI
+OK
+127.0.0.1:6379(TX)> HINCRBY panier:8421 produit:P-003 1
+QUEUED
+127.0.0.1:6379(TX)> EXPIRE panier:8421 604800
+QUEUED
+127.0.0.1:6379(TX)> EXEC
+1) (integer) 3
+2) (integer) 1
+127.0.0.1:6379> HSET produit:P-003 prix 109
+(integer) 0
+127.0.0.1:6379> HGETALL produit:P-003
+1) "libelle"
+2) "Sport 3"
+3) "categorie"
+4) "Sport"
+5) "prix"
+6) "109"
+7) "stock"
+8) "37"
+127.0.0.1:6379> ZSCORE idx:produits:prix produit:P-003
+"121"
+127.0.0.1:6379> SCARD categorie:Audio
+(integer) 40
+127.0.0.1:6379> SISMEMBER categorie:Audio produit:P-003
+(integer) 0
+127.0.0.1:6379> SISMEMBER categorie:Sport produit:P-003
+(integer) 1
+127.0.0.1:6379>
+127.0.0.1:6379> DEL promo
+(integer) 0
+127.0.0.1:6379> SADD promo produit:P-003 produit:P-008 produit:P-013 produit:P-020 produit:P-023
+(integer) 5
+127.0.0.1:6379> SINTER categorie:Sport promo
+1) "produit:P-003"
+2) "produit:P-008"
+3) "produit:P-013"
+4) "produit:P-023"
+127.0.0.1:6379>
+127.0.0.1:6379> DEL vus:client:8421
+(integer) 0
+127.0.0.1:6379> LPUSH vus:client:8421 produit:P-003
+(integer) 1
+127.0.0.1:6379> LPUSH vus:client:8421 produit:P-050
+(integer) 2
+127.0.0.1:6379> LPUSH vus:client:8421 produit:P-120
+(integer) 3
+127.0.0.1:6379> LPUSH vus:client:8421 produit:P-007
+(integer) 4
+127.0.0.1:6379> LTRIM vus:client:8421 0 2
+OK
+127.0.0.1:6379> LRANGE vus:client:8421 0 -1
+1) "produit:P-007"
+2) "produit:P-120"
+3) "produit:P-050"
+127.0.0.1:6379>
+127.0.0.1:6379> DEL file:emails
+(integer) 0
+127.0.0.1:6379> RPUSH file:emails bienvenue:8421
+(integer) 1
+127.0.0.1:6379> RPUSH file:emails facture:1041
+(integer) 2
+127.0.0.1:6379> RPUSH file:emails relance:8422
+(integer) 3
+127.0.0.1:6379> LPOP file:emails
+"bienvenue:8421"
+127.0.0.1:6379> LLEN file:emails
+(integer) 2
+127.0.0.1:6379>
+127.0.0.1:6379> ZRANGE idx:produits:prix 0 2 REV WITHSCORES
+1) "produit:P-027"
+2) "509"
+3) "produit:P-054"
+4) "508"
+5) "produit:P-081"
+6) "507"
+127.0.0.1:6379> ZRANGE idx:produits:prix 100 120 BYSCORE WITHSCORES
+ 1) "produit:P-070"
+ 2) "100"
+ 3) "produit:P-043"
+ 4) "101"
+ 5) "produit:P-016"
+ 6) "102"
+ 7) "produit:P-192"
+ 8) "114"
+ 9) "produit:P-165"
+10) "115"
+11) "produit:P-138"
+12) "116"
+13) "produit:P-111"
+14) "117"
+15) "produit:P-084"
+16) "118"
+17) "produit:P-057"
+18) "119"
+19) "produit:P-030"
+20) "120"
+127.0.0.1:6379>
+127.0.0.1:6379> MULTI
+OK
+127.0.0.1:6379(TX)> HSET produit:P-003 prix 109
+QUEUED
+127.0.0.1:6379(TX)> ZADD idx:produits:prix 109 produit:P-003
+QUEUED
+127.0.0.1:6379(TX)> EXEC
+1) (integer) 0
+2) (integer) 0
+127.0.0.1:6379>
+127.0.0.1:6379> HGET produit:P-003 prix
+"109"
+127.0.0.1:6379> ZSCORE idx:produits:prix produit:P-003
+"109"
+127.0.0.1:6379>
+127.0.0.1:6379> DEL ventes:2026-09
+(integer) 0
+127.0.0.1:6379> ZINCRBY ventes:2026-09 3 produit:P-003
+"3"
+127.0.0.1:6379> ZINCRBY ventes:2026-09 5 produit:P-050
+"5"
+127.0.0.1:6379> ZINCRBY ventes:2026-09 2 produit:P-003
+"5"
+127.0.0.1:6379> ZINCRBY ventes:2026-09 4 produit:P-120
+"4"
+127.0.0.1:6379> ZINCRBY ventes:2026-09 1 produit:P-007
+"1"
+127.0.0.1:6379> ZRANGE ventes:2026-09 0 2 REV WITHSCORES
+1) "produit:P-050"
+2) "5"
+3) "produit:P-003"
+4) "5"
+5) "produit:P-120"
+6) "4"
+127.0.0.1:6379> ZREVRANK ventes:2026-09 produit:P-003
+(integer) 1
+127.0.0.1:6379> SCARD categorie:Audio
+(integer) 40
+127.0.0.1:6379> SISMEMBER categorie:Audio produit:P-003
+(integer) 0
+127.0.0.1:6379> SISMEMBER categorie:Sport produit:P-003
+(integer) 1
+127.0.0.1:6379>
+127.0.0.1:6379> DEL promo
+(integer) 1
+127.0.0.1:6379> SADD promo produit:P-003 produit:P-008 produit:P-013 produit:P-020 produit:P-023
+(integer) 5
+127.0.0.1:6379> SINTER categorie:Sport promo
+1) "produit:P-003"
+2) "produit:P-008"
+3) "produit:P-013"
+4) "produit:P-023"
+127.0.0.1:6379>
+127.0.0.1:6379> DEL vus:client:8421
+(integer) 1
+127.0.0.1:6379> LPUSH vus:client:8421 produit:P-003
+(integer) 1
+127.0.0.1:6379> LPUSH vus:client:8421 produit:P-050
+(integer) 2
+127.0.0.1:6379> LPUSH vus:client:8421 produit:P-120
+(integer) 3
+127.0.0.1:6379> LPUSH vus:client:8421 produit:P-007
+(integer) 4
+127.0.0.1:6379> LTRIM vus:client:8421 0 2
+OK
+127.0.0.1:6379> LRANGE vus:client:8421 0 -1
+1) "produit:P-007"
+2) "produit:P-120"
+3) "produit:P-050"
+127.0.0.1:6379>
+127.0.0.1:6379> DEL file:emails
+(integer) 1
+127.0.0.1:6379> RPUSH file:emails bienvenue:8421
+(integer) 1
+127.0.0.1:6379> RPUSH file:emails facture:1041
+(integer) 2
+127.0.0.1:6379> RPUSH file:emails relance:8422
+(integer) 3
+127.0.0.1:6379> LPOP file:emails
+"bienvenue:8421"
+127.0.0.1:6379> LLEN file:emails
+(integer) 2
+127.0.0.1:6379> ZRANGE idx:produits:prix 0 2 WITHSCORES
+1) "produit:P-176"
+2) "22"
+3) "produit:P-149"
+4) "23"
+5) "produit:P-122"
+6) "24"
+127.0.0.1:6379> ZCOUNT idx:produits:prix 0 100
+(integer) 35
+127.0.0.1:6379>
+127.0.0.1:6379> ZRANGE idx:produits:prix 0 2 REV WITHSCORES
+1) "produit:P-027"
+2) "509"
+3) "produit:P-054"
+4) "508"
+5) "produit:P-081"
+6) "507"
+127.0.0.1:6379> ZRANGE idx:produits:prix 100 120 BYSCORE WITHSCORES
+ 1) "produit:P-070"
+ 2) "100"
+ 3) "produit:P-043"
+ 4) "101"
+ 5) "produit:P-016"
+ 6) "102"
+ 7) "produit:P-003"
+ 8) "109"
+ 9) "produit:P-192"
+10) "114"
+11) "produit:P-165"
+12) "115"
+13) "produit:P-138"
+14) "116"
+15) "produit:P-111"
+16) "117"
+17) "produit:P-084"
+18) "118"
+19) "produit:P-057"
+20) "119"
+21) "produit:P-030"
+22) "120"
+127.0.0.1:6379>
+127.0.0.1:6379> MULTI
+OK
+127.0.0.1:6379(TX)> HSET produit:P-003 prix 109
+QUEUED
+127.0.0.1:6379(TX)> ZADD idx:produits:prix 109 produit:P-003
+QUEUED
+127.0.0.1:6379(TX)> EXEC
+1) (integer) 0
+2) (integer) 0
+127.0.0.1:6379>
+127.0.0.1:6379> HGET produit:P-003 prix
+"109"
+127.0.0.1:6379> ZSCORE idx:produits:prix produit:P-003
+"109"
+127.0.0.1:6379>
+127.0.0.1:6379> DEL ventes:2026-09
+(integer) 1
+127.0.0.1:6379> ZINCRBY ventes:2026-09 3 produit:P-003
+"3"
+127.0.0.1:6379> ZINCRBY ventes:2026-09 5 produit:P-050
+"5"
+127.0.0.1:6379> ZINCRBY ventes:2026-09 2 produit:P-003
+"5"
+127.0.0.1:6379> ZINCRBY ventes:2026-09 4 produit:P-120
+"4"
+127.0.0.1:6379> ZINCRBY ventes:2026-09 1 produit:P-007
+"1"
+127.0.0.1:6379> ZRANGE ventes:2026-09 0 2 REV WITHSCORES
+1) "produit:P-050"
+2) "5"
+3) "produit:P-003"
+4) "5"
+5) "produit:P-120"
+6) "4"
+127.0.0.1:6379> ZREVRANK ventes:2026-09 produit:P-003
+(integer) 1
+127.0.0.1:6379> SET promo:flash "moins 50 pourcent" EX 5
+OK
+127.0.0.1:6379> TTL promo:flash
+(integer) 5
+127.0.0.1:6379> GET promo:flash
+(nil)
+127.0.0.1:6379> TTL promo:flash
+(integer) -2
+127.0.0.1:6379> TTL produit:P-001
+(integer) -1
+127.0.0.1:6379> EXIT
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug redis
+    Learn more at https://docs.docker.com/go/debug-cli/
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis sh -c "redis-cli < /tmp/donnees-redis.txt"
+OK
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+206
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec -it redis redis-cli
+127.0.0.1:6379> CONFIG SET maxmemory 10mb
+OK
+127.0.0.1:6379> CONFIG GET maxmemory-policy
+1) "maxmemory-policy"
+2) "noeviction"
+127.0.0.1:6379> DBSIZE
+(integer) 42599
+127.0.0.1:6379> CONFIG SET maxmemory-policy allkeys-lru
+OK
+127.0.0.1:6379> DBSIZE
+(integer) 42596
+127.0.0.1:6379> EXISTS produit:P-001
+(integer) 0
+127.0.0.1:6379> INFO stats
+# Stats
+total_connections_received:110
+total_commands_processed:245293
+instantaneous_ops_per_sec:1
+total_net_input_bytes:35204238
+total_net_output_bytes:3029036
+total_net_repl_input_bytes:0
+total_net_repl_output_bytes:0
+instantaneous_input_kbps:0.03
+instantaneous_output_kbps:0.01
+instantaneous_input_repl_kbps:0.00
+instantaneous_output_repl_kbps:0.00
+rejected_connections:0
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0
+expired_subkeys:0
+expired_subkeys_active:0
+expired_keys:1
+expired_keys_active:1
+expired_stale_perc:0.00
+expired_time_cap_reached_count:0
+expire_cycle_cpu_milliseconds:193
+evicted_keys:191703
+evicted_clients:0
+evicted_scripts:0
+total_eviction_exceeded_time:8422
+current_eviction_exceeded_time:0
+keyspace_hits:45
+keyspace_misses:9
+pubsub_channels:0
+pubsub_patterns:0
+pubsubshard_channels:0
+latest_fork_usec:1169
+total_forks:5
+migrate_cached_sockets:0
+slave_expires_tracked_keys:0
+active_defrag_hits:0
+active_defrag_misses:0
+active_defrag_key_hits:0
+active_defrag_key_misses:0
+total_active_defrag_time:0
+current_active_defrag_time:0
+tracking_total_keys:0
+tracking_total_items:0
+tracking_total_prefixes:0
+unexpected_error_replies:0
+total_error_replies:27
+dump_payload_sanitizations:0
+total_reads_processed:245418
+total_writes_processed:245328
+io_threaded_reads_processed:0
+io_threaded_writes_processed:0
+io_threaded_total_prefetch_batches:1
+io_threaded_total_prefetch_entries:3
+client_query_buffer_limit_disconnections:0
+client_output_buffer_limit_disconnections:0
+reply_buffer_shrinks:12
+reply_buffer_expands:0
+eventloop_cycles:116749
+eventloop_duration_sum:17058554
+eventloop_duration_cmd_sum:204442
+instantaneous_eventloop_cycles_per_sec:10
+instantaneous_eventloop_duration_usec:311
+eventloop_cycles_with_clients_processing:63145
+total_client_processing_events:245309
+avg_pipeline_length_sum:245311
+avg_pipeline_length_cnt:245309
+avg_pipeline_length:1.00
+slowlog_commands_count:2
+slowlog_commands_time_ms_max:51.70
+slowlog_commands_time_ms_sum:102.85
+hash_templates:0
+hash_template_keys:0
+acl_access_denied_auth:0
+acl_access_denied_cmd:0
+acl_access_denied_key:0
+acl_access_denied_channel:0
+acl_access_denied_tls_cert:0
+127.0.0.1:6379> CONFIG SET maxmemory 0
+OK
+127.0.0.1:6379> CONFIG SET maxmemory-policy noeviction
+OK
+127.0.0.1:6379> EXIT
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug redis
+    Learn more at https://docs.docker.com/go/debug-cli/
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis sh -c "redis-cli < /tmp/donnees-redis.txt"
+OK
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+206
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec -it redis redis-cli
+127.0.0.1:6379> CONFIG SET maxmemory-policy volatile-lru
+OK
+127.0.0.1:6379> CONFIG GET maxmemory-policy
+1) "maxmemory-policy"
+2) "volatile-lru"
+127.0.0.1:6379> CONFIG SET maxmemory-policy noeviction
+OK
+127.0.0.1:6379> EVAL "for i=1,1000000 do redis.call('SET', 'session:'..i, 'client') end return redis.call('DBSIZE')" 0
+
+(integer) 1000206
+(1.65s)
+127.0.0.1:6379> CONFIG SET slowlog-log-slower-than 0
+OK
+127.0.0.1:6379> SLOWLOG RESET
+OK
+127.0.0.1:6379> KEYS session:4242*
+  1) "session:424272"
+  2) "session:424266"
+  3) "session:424260"
+  4) "session:424232"
+  5) "session:42425"
+  6) "session:424256"
+  7) "session:42422"
+  8) "session:424239"
+  9) "session:424288"
+ 10) "session:424219"
+ 11) "session:424221"
+ 12) "session:424259"
+ 13) "session:424220"
+ 14) "session:424289"
+ 15) "session:424286"
+ 16) "session:424214"
+ 17) "session:424216"
+ 18) "session:424225"
+ 19) "session:424285"
+ 20) "session:424243"
+ 21) "session:42426"
+ 22) "session:424297"
+ 23) "session:424233"
+ 24) "session:424231"
+ 25) "session:424205"
+ 26) "session:424296"
+ 27) "session:424208"
+ 28) "session:424201"
+ 29) "session:424283"
+ 30) "session:424228"
+ 31) "session:424262"
+ 32) "session:424230"
+ 33) "session:424223"
+ 34) "session:424237"
+ 35) "session:424234"
+ 36) "session:424294"
+ 37) "session:424258"
+ 38) "session:42421"
+ 39) "session:424280"
+ 40) "session:424269"
+ 41) "session:424217"
+ 42) "session:424226"
+ 43) "session:424251"
+ 44) "session:424245"
+ 45) "session:424241"
+ 46) "session:424210"
+ 47) "session:42428"
+ 48) "session:424268"
+ 49) "session:424235"
+ 50) "session:42423"
+ 51) "session:424290"
+ 52) "session:424222"
+ 53) "session:424229"
+ 54) "session:424248"
+ 55) "session:424252"
+ 56) "session:42427"
+ 57) "session:4242"
+ 58) "session:424293"
+ 59) "session:424203"
+ 60) "session:424247"
+ 61) "session:424261"
+ 62) "session:424291"
+ 63) "session:424278"
+ 64) "session:424270"
+ 65) "session:424267"
+ 66) "session:424238"
+ 67) "session:424287"
+ 68) "session:424277"
+ 69) "session:424200"
+ 70) "session:424250"
+ 71) "session:424218"
+ 72) "session:424271"
+ 73) "session:424273"
+ 74) "session:424265"
+ 75) "session:424236"
+ 76) "session:424246"
+ 77) "session:424298"
+ 78) "session:424242"
+ 79) "session:424206"
+ 80) "session:424281"
+ 81) "session:424295"
+ 82) "session:424224"
+ 83) "session:424204"
+ 84) "session:424284"
+ 85) "session:424202"
+ 86) "session:424253"
+ 87) "session:424207"
+ 88) "session:42429"
+ 89) "session:424227"
+ 90) "session:424279"
+ 91) "session:424244"
+ 92) "session:424215"
+ 93) "session:424254"
+ 94) "session:424264"
+ 95) "session:424212"
+ 96) "session:424292"
+ 97) "session:42424"
+ 98) "session:424275"
+ 99) "session:424240"
+100) "session:424299"
+101) "session:424249"
+102) "session:424276"
+103) "session:424257"
+104) "session:424274"
+105) "session:42420"
+106) "session:424255"
+107) "session:424209"
+108) "session:424211"
+109) "session:424213"
+110) "session:424263"
+111) "session:424282"
+127.0.0.1:6379> SCAN 0 MATCH session:4242* COUNT 1000
+1) "115200"
+2) (empty array)
+127.0.0.1:6379> SLOWLOG GET 3
+1) 1) (integer) 6
+   2) (integer) 1794933437
+   3) (integer) 633
+   4) 1) "SCAN"
+      2) "0"
+      3) "MATCH"
+      4) "session:4242*"
+      5) "COUNT"
+      6) "1000"
+   5) "127.0.0.1:47008"
+   6) ""
+   7) (integer) 6
+2) 1) (integer) 5
+   2) (integer) 1794933437
+   3) (integer) 142754
+   4) 1) "KEYS"
+      2) "session:4242*"
+   5) "127.0.0.1:47008"
+   6) ""
+   7) (integer) 2
+3) 1) (integer) 4
+   2) (integer) 1794933437
+   3) (integer) 129
+   4) 1) "SLOWLOG"
+      2) "RESET"
+   5) "127.0.0.1:47008"
+   6) ""
+   7) (integer) 2
+127.0.0.1:6379> CONFIG SET slowlog-log-slower-than 10000
+OK
+127.0.0.1:6379> EXIT
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug redis
+    Learn more at https://docs.docker.com/go/debug-cli/
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis sh -c 'redis-cli --scan --pattern "session:4242*" | wc -l'
+111
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec -it redis redis-cli
+127.0.0.1:6379> EVAL "for i=1,1000000 do redis.call('SET', 'session:'..i, 'client') end return redis.call('DBSIZE')" 0
+
+(integer) 1000206
+(1.36s)
+127.0.0.1:6379> SLOWLOG GET 1
+1) 1) (integer) 8
+   2) (integer) 1794933668
+   3) (integer) 1361616
+   4) 1) "EVAL"
+      2) "for i=1,1000000 do redis.call('SET', 'session:'..i, 'client') end return redis.call('DBSIZE')"
+      3) "0"
+   5) "127.0.0.1:60630"
+   6) ""
+   7) (integer) 3
+127.0.0.1:6379> EXIT
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug redis
+    Learn more at https://docs.docker.com/go/debug-cli/
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis sh -c "redis-cli < /tmp/donnees-redis.txt"
+OK
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+4
+1
+1
+206
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec -it redis redis-cli
+127.0.0.1:6379> docker exec -it redis redis-cli
+(error) ERR unknown command 'docker', with args beginning with: 'exec' '-it' 'redis' 'redis-cli'
+127.0.0.1:6379> SET stock:P-003 1
+OK
+127.0.0.1:6379> WATCH stock:P-003
+OK
+127.0.0.1:6379> GET stock:P-003
+"1"
+127.0.0.1:6379> WATCH stock:P-003
+OK
+127.0.0.1:6379> GET stock:P-003
+"1"
+127.0.0.1:6379> MULTI
+OK
+127.0.0.1:6379(TX)> DECR stock:P-003
+QUEUED
+127.0.0.1:6379(TX)> EXEC
+(nil)
+127.0.0.1:6379> SET stock:P-003 1
+OK
+127.0.0.1:6379> GET stock:P-003
+"1"
+127.0.0.1:6379> EXIT
+
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug redis
+    Learn more at https://docs.docker.com/go/debug-cli/
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> @'
+>> local stock = tonumber(redis.call("GET", KEYS[1]))
+>> if stock and stock > 0 then
+>>     return redis.call("DECR", KEYS[1])
+>> end
+>> return -1
+>> '@ | Set-Content -Encoding ascii .\vendre.lua
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker cp .\vendre.lua redis:/tmp/vendre.lua
+Access is denied.
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> Get-Content -Raw .\vendre.lua | docker exec -i redis redis-cli
+Invalid argument(s)
+ERR unknown command 'if', with args beginning with: 'stock' 'and' 'stock' '>' '0' 'then'
+
+Invalid argument(s)
+ERR unknown command 'end'
+
+ERR unknown command 'return', with args beginning with: '-1'
+
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> Get-Content -Raw .\vendre.lua | docker exec -i redis redis-cli
+
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis redis-cli SET stock:P-003 2
+OK
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis redis-cli EVAL "local stock = tonumber(redis.call('GET', KEYS[1])); if stock and stock > 0 then return redis.call('DECR', KEYS[1]) end; return -1" 1 stock:P-003
+(integer) 1
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis redis-cli EVAL "local stock = tonumber(redis.call('GET', KEYS[1])); if stock and stock > 0 then return redis.call('DECR', KEYS[1]) end; return -1" 1 stock:P-003
+(integer) 0
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis redis-cli EVAL "local stock = tonumber(redis.call('GET', KEYS[1])); if stock and stock > 0 then return redis.call('DECR', KEYS[1]) end; return -1" 1 stock:P-003
+(integer) -1
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec -it redis redis-cli
+127.0.0.1:6379> DEL limite:8421:2026-09-28T14:05
+(integer) 0
+127.0.0.1:6379> MULTI
+OK
+127.0.0.1:6379(TX)> INCR limite:8421:2026-09-28T14:05
+QUEUED
+127.0.0.1:6379(TX)> EXPIRE limite:8421:2026-09-28T14:05 60 NX
+QUEUED
+127.0.0.1:6379(TX)> EXEC
+1) (integer) 1
+2) (integer) 1
+127.0.0.1:6379> MULTI
+OK
+127.0.0.1:6379(TX)> INCR limite:8421:2026-09-28T14:05
+QUEUED
+127.0.0.1:6379(TX)> EXPIRE limite:8421:2026-09-28T14:05 60 NX
+QUEUED
+127.0.0.1:6379(TX)> EXEC
+1) (integer) 2
+2) (integer) 0
+127.0.0.1:6379> MULTI
+OK
+127.0.0.1:6379(TX)> INCR limite:8421:2026-09-28T14:05
+QUEUED
+127.0.0.1:6379(TX)> EXPIRE limite:8421:2026-09-28T14:05 60 NX
+QUEUED
+127.0.0.1:6379(TX)> EXEC
+1) (integer) 3
+2) (integer) 0
+127.0.0.1:6379> GET limite:8421:2026-09-28T14:05
+"3"
+127.0.0.1:6379> SET avant "ecrite avant la sauvegarde"
+OK
+127.0.0.1:6379> BGSAVE
+Background saving started
+127.0.0.1:6379> SET apres "ecrite apres la sauvegarde"
+OK
+127.0.0.1:6379> SHUTDOWN NOSAVE
+not connected> EXIT
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker start redis
+redis
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec -it redis redis-cli
+127.0.0.1:6379> GET avant
+"ecrite avant la sauvegarde"
+127.0.0.1:6379> GET apres
+(nil)
+127.0.0.1:6379> SET derniere "ecrite juste avant un arret normal"
+OK
+127.0.0.1:6379> SHUTDOWN
+not connected> EXIT
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker start redis
+redis
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec -it redis redis-cli
+127.0.0.1:6379> GET derniere
+"ecrite juste avant un arret normal"
+127.0.0.1:6379> CONFIG GET appendonly
+1) "appendonly"
+2) "no"
+127.0.0.1:6379> CONFIG GET appendfsync
+1) "appendfsync"
+2) "everysec"
+127.0.0.1:6379> CONFIG SET appendonly yes
+OK
+127.0.0.1:6379> CONFIG SET appendfsync everysec
+OK
+127.0.0.1:6379> CONFIG GET appendonly
+1) "appendonly"
+2) "yes"
+127.0.0.1:6379> CONFIG GET appendfsync
+1) "appendfsync"
+2) "everysec"
+127.0.0.1:6379> SET test:aof "ecriture avec AOF"
+OK
+127.0.0.1:6379> SHUTDOWN
+not connected> EXIT
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker start redis
+redis
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec -it redis redis-cli
+127.0.0.1:6379> GET test:aof
+"ecriture avec AOF"
+127.0.0.1:6379> CONFIG GET appendonly
+1) "appendonly"
+2) "no"
+127.0.0.1:6379> CONFIG GET appendfsync
+1) "appendfsync"
+2) "everysec"
+127.0.0.1:6379> EXIT
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis>
+
+======================================================================================================================
+part 3

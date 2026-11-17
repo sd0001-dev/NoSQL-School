@@ -1,0 +1,507 @@
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> python --version
+Python 3.14.10
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> python -c "import redis; print(redis.__version__)"
+8.1.0
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis sh -c "redis-cli < /tmp/donnees-redis.txt"
+OK
+206
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> python
+Python 3.14.10
+>>> import redis
+>>> r = redis.Redis(host="localhost", port=6379, decode_responses=True)
+>>> r.ping()
+True
+>>> r.dbsize()
+206
+>>> r.type("produit:P-001")
+'hash'
+>>> r.info("server")["redis_version"]
+'8.x.x'
+>>> brut = redis.Redis(host="localhost", port=6379)
+>>> brut.type("produit:P-001")
+b'hash'
+>>> brut.hgetall("produit:P-001")
+{b'libelle': b'Maison 1', b'categorie': b'Maison', b'prix': b'47', b'stock': b'13'}
+>>> brut.hget("produit:P-001", "libelle").decode("utf-8")
+'Maison 1'
+>>> r.hgetall("produit:P-001")
+{'libelle': 'Maison 1', 'categorie': 'Maison', 'prix': '47', 'stock': '13'}
+>>> brut.close()
+>>> u = redis.from_url("redis://localhost:6379/0", decode_responses=True)
+>>> u.dbsize()
+206
+>>> u.close()
+>>> autre = redis.Redis(host="localhost", port=6379, db=1, decode_responses=True)
+>>> autre.dbsize()
+0
+>>> autre.exists("produit:P-001"), r.exists("produit:P-001")
+(0, 1)
+>>> autre.close()
+>>> r.set("vues:produit:P-003", 0)
+True
+>>> r.incr("vues:produit:P-003")
+1
+>>> r.incr("vues:produit:P-003")
+2
+>>> r.incrby("vues:produit:P-003", 10)
+12
+>>> v = r.get("vues:produit:P-003")
+>>> v, type(v).__name__
+('12', 'str')
+>>> int(v) + 1
+13
+>>> r.set("verrou:commande:1041", "serveur-A", nx=True, ex=30)
+True
+>>> b = r.set("verrou:commande:1041", "serveur-B", nx=True, ex=30)
+>>> print(b)
+None
+>>> r.get("verrou:commande:1041"), r.ttl("verrou:commande:1041")
+('serveur-A', 29)
+>>> fiche = r.hgetall("produit:P-003")
+>>> fiche
+{'libelle': 'Sport 3', 'categorie': 'Sport', 'prix': '121', 'stock': '39'}
+>>> int(fiche["prix"]) * 2
+242
+>>> r.hget("produit:P-003", "stock")
+'39'
+>>> r.hmget("produit:P-003", ["libelle", "stock"])
+['Sport 3', '39']
+>>> r.hincrby("produit:P-003", "stock", -1)
+38
+>>> nouveau = {"libelle": "Clavier sans fil", "categorie": "Informatique", "prix": 249, "stock": 42}
+>>> r.hset("produit:P-201", mapping=nouveau)
+4
+>>> r.hgetall("produit:P-201")
+{'libelle': 'Clavier sans fil', 'categorie': 'Informatique', 'prix': '249', 'stock': '42'}
+>>> r.hset("produit:P-201", mapping={"prix": 229, "stock": 40})
+0
+>>> r.hmget("produit:P-201", ["prix", "stock"])
+['229', '40']
+>>> print(r.get("vues:produit:P-999"))
+None
+>>> print(r.hget("produit:P-003", "couleur"))
+None
+>>> r.hgetall("produit:P-999")
+{}
+>>> r.hset("produit:P-201", "prix", 19.90)
+0
+>>> r.hget("produit:P-201", "prix")
+'19.9'
+>>> r.hset("produit:P-201", "promo", True)
+Traceback (most recent call last):
+...
+redis.exceptions.DataError: Invalid input of type: 'bool'. Convert to a bytes, string, int or float first.
+>>> r.hset("produit:P-201", "prix", 229)
+0
+>>> r.hget("produit:P-201", "prix")
+'229'
+>>> r.scard("categorie:Audio")
+40
+>>> r.sismember("categorie:Audio", "produit:P-003")
+0
+>>> r.sismember("categorie:Sport", "produit:P-003")
+1
+>>> r.sadd("promo", "produit:P-003", "produit:P-008", "produit:P-013", "produit:P-020", "produit:P-023")
+5
+>>> communs = r.sinter("categorie:Sport", "promo")
+>>> type(communs).__name__, len(communs)
+('set', 4)
+>>> sorted(communs)
+['produit:P-003', 'produit:P-008', 'produit:P-013', 'produit:P-023']
+>>> r.sadd("categorie:Informatique", "produit:P-201")
+1
+>>> r.sadd("categorie:Informatique", "produit:P-201")
+0
+>>> r.delete("file:emails")
+0
+>>> r.rpush("file:emails", "bienvenue:8421", "facture:1041", "relance:8422")
+3
+>>> r.lrange("file:emails", 0, -1)
+['bienvenue:8421', 'facture:1041', 'relance:8422']
+>>> r.lpop("file:emails")
+'bienvenue:8421'
+>>> r.llen("file:emails"), r.lrange("file:emails", 0, -1)
+(2, ['facture:1041', 'relance:8422'])
+>>> r.zrange("idx:produits:prix", 0, 2, withscores=True)
+[('produit:P-176', 22.0), ('produit:P-149', 23.0), ('produit:P-122', 24.0)]
+>>> r.zcount("idx:produits:prix", 0, 100)
+35
+>>> r.zadd("idx:produits:prix", {"produit:P-201": 229})
+1
+>>> r.zscore("idx:produits:prix", "produit:P-201")
+229.0
+>>> r.delete("ventes:2026-09")
+0
+>>> ventes = [("P-003", 3), ("P-050", 5), ("P-003", 2), ("P-120", 4), ("P-007", 1)]
+>>> for ref, n in ventes:
+...     print(ref, r.zincrby("ventes:2026-09", n, "produit:" + ref))
+...
+P-003 3.0
+P-050 5.0
+P-003 5.0
+P-120 4.0
+P-007 1.0
+>>> r.zrevrange("ventes:2026-09", 0, 2, withscores=True)
+[('produit:P-050', 5.0), ('produit:P-003', 5.0), ('produit:P-120', 4.0)]
+>>> r.zrevrank("ventes:2026-09", "produit:P-003")
+1
+>>> import time
+>>> r.set("promo:flash", "moins 50 pourcent", ex=5)
+True
+>>> r.ttl("promo:flash")
+5
+>>> time.sleep(6)
+>>> print(r.get("promo:flash"))
+None
+>>> r.ttl("promo:flash"), r.ttl("produit:P-001")
+(-2, -1)
+>>> r.expire("vues:produit:P-003", 3600)
+True
+>>> r.ttl("vues:produit:P-003")
+3600
+>>> r.persist("vues:produit:P-003")
+True
+>>> r.ttl("vues:produit:P-003")
+-1
+>>> r.dbsize()
+212
+>>> cles = r.keys("produit:P-00*")
+>>> len(cles)
+9
+>>> trouvees = sorted(r.scan_iter(match="produit:P-00*"))
+>>> len(trouvees), trouvees[0], trouvees[-1]
+(9, 'produit:P-001', 'produit:P-009')
+>>> r.scan(0, match="produit:P-00*", count=10)
+(208, [])
+>>> n = 0
+>>> for cle in r.scan_iter(match="produit:*", count=100):
+...     n = n + 1
+...
+>>> n
+201
+>>> r.zrem("idx:produits:prix", "produit:P-201")
+1
+>>> r.srem("categorie:Informatique", "produit:P-201")
+1
+>>> r.delete("produit:P-201")
+1
+>>> r.delete("produit:P-201")
+0
+>>> r.exists("produit:P-201")
+0
+>>> for produit, prix in r.zrange("idx:produits:prix", 0, 2, withscores=True):
+...     print(produit, int(prix), "DH")
+...
+produit:P-176 22 DH
+produit:P-149 23 DH
+produit:P-122 24 DH
+>>> for cle in sorted(r.scan_iter(match="categorie:*")):
+...     print(cle, r.scard(cle))
+...
+categorie:Alimentation 40
+categorie:Audio 40
+categorie:Informatique 40
+categorie:Maison 40
+categorie:Sport 40
+>>> def sans_pipeline():
+...     for i in range(10000):
+...         r.incr("essai:compteur")
+...
+>>> def avec_pipeline():
+...     pipe = r.pipeline(transaction=False)
+...     for i in range(10000):
+...         pipe.incr("essai:compteur")
+...     return pipe.execute()
+...
+>>> def chrono(fonction):
+...     debut = time.perf_counter()
+...     fonction()
+...     return time.perf_counter() - debut
+...
+>>> t1 = chrono(sans_pipeline)
+>>> t2 = chrono(avec_pipeline)
+>>> round(t1, 3), round(t2, 3), round(t1 / t2)
+(0.659, 0.039, 17)
+>>> r.get("essai:compteur")
+'20000'
+>>> r.delete("essai:compteur")
+1
+>>> def changer_prix(cle, prix):
+...     pipe = r.pipeline()
+...     pipe.hset(cle, "prix", prix)
+...     pipe.zadd("idx:produits:prix", {cle: prix})
+...     return pipe.execute()
+...
+>>> changer_prix("produit:P-003", 109)
+[0, 0]
+>>> r.hget("produit:P-003", "prix"), r.zscore("idx:produits:prix", "produit:P-003")
+('109', 109.0)
+>>> r.set("stock:P-003", 1)
+True
+>>> pipe = r.pipeline()
+>>> pipe.watch("stock:P-003")
+True
+>>> pipe.get("stock:P-003")
+'1'
+>>> r.decr("stock:P-003")
+0
+>>> pipe.multi()
+>>> pipe.decr("stock:P-003").execute()
+Traceback (most recent call last):
+...
+redis.exceptions.WatchError: Watched variable changed.
+>>> r.get("stock:P-003")
+'0'
+>>> pipe.reset()
+>>> reprises = []
+>>> def vendre(cle):
+...     with r.pipeline() as pipe:
+...         while True:
+...             try:
+...                 pipe.watch(cle)
+...                 stock = int(pipe.get(cle))
+...                 if stock <= 0:
+...                     pipe.unwatch()
+...                     return -1
+...                 pipe.multi()
+...                 pipe.decr(cle)
+...                 return pipe.execute()[0]
+...             except redis.WatchError:
+...                 reprises.append(cle)
+...
+>>> r.set("stock:P-003", 2)
+True
+>>> vendre("stock:P-003"), vendre("stock:P-003"), vendre("stock:P-003")
+(1, 0, -1)
+>>> with open("vendre.lua", encoding="utf-8") as f:
+...     texte = f.read()
+...
+>>> vendre_lua = r.register_script(texte)
+>>> r.set("stock:P-003", 2)
+True
+>>> cle = ["stock:P-003"]
+>>> vendre_lua(keys=cle), vendre_lua(keys=cle), vendre_lua(keys=cle)
+(1, 0, -1)
+>>> vendre_lua.sha
+'a1b83a3c2e7ed2f0e7bf89906b0bba73738d5dcf'
+>>> r.set("stock:P-003", 1)
+True
+>>> r.eval(texte, 1, "stock:P-003")
+0
+>>> import threading
+>>> def deux_acheteurs(vendre_un, cle):
+...     r.set(cle, 100)
+...     resultats = []
+...     def acheteur():
+...         for i in range(80):
+...             resultats.append(vendre_un(cle))
+...     fils = [threading.Thread(target=acheteur), threading.Thread(target=acheteur)]
+...     for f in fils:
+...         f.start()
+...     for f in fils:
+...         f.join()
+...     vendus = len([x for x in resultats if x >= 0])
+...     return vendus, len(resultats) - vendus, r.get(cle)
+...
+>>> def vendre_par_script(cle):
+...     return vendre_lua(keys=[cle])
+...
+>>> reprises = []
+>>> deux_acheteurs(vendre, "stock:P-003"), len(reprises)
+((100, 60, '0'), 94)
+>>> reprises = []
+>>> deux_acheteurs(vendre_par_script, "stock:P-003"), len(reprises)
+((100, 60, '0'), 0)
+>>> def vendre_naif(cle):
+...     stock = int(r.get(cle) or 0)
+...     if stock <= 0:
+...         return -1
+...     stock = stock - 1
+...     r.set(cle, stock)
+...     return stock
+...
+>>> deux_acheteurs(vendre_naif, "stock:P-003")
+(160, 0, '17')
+>>> deux_acheteurs(vendre_naif, "stock:P-003")
+(160, 0, '18')
+>>> pipe = r.pipeline(transaction=False)
+>>> for cle in ["produit:P-001", "produit:P-002", "produit:P-003"]:
+...     pipe.hget(cle, "prix")
+...
+<redis.client.Pipeline object at 0x...>
+<redis.client.Pipeline object at 0x...>
+<redis.client.Pipeline object at 0x...>
+>>> pipe.execute()
+['47', '84', '109']
+>>> r.get("produit:P-003")
+Traceback (most recent call last):
+...
+redis.exceptions.ResponseError: WRONGTYPE Operation against a key holding the wrong kind of value
+>>> try:
+...     r.incr("produit:P-003")
+... except redis.ResponseError as e:
+...     print("Refus du serveur :", e)
+...
+Refus du serveur : WRONGTYPE Operation against a key holding the wrong kind of value
+>>> absent = redis.Redis(host="localhost", port=6380, decode_responses=True)
+>>> absent.ping()
+Traceback (most recent call last):
+...
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6380. No connection could be made because the target machine actively refused it.
+>>> try:
+...     debut = time.time()
+...     absent.ping()
+... except redis.ConnectionError as e:
+...     print("Pas de serveur :", e)
+...     print("Echec apres", round(time.time() - debut, 1), "s")
+...
+Pas de serveur : Error 10061 connecting to localhost:6380. No connection could be made because the target machine actively refused it.
+Echec apres 2.9 s
+>>> absent.close()
+>>> r.delete("essai:a", "essai:b")
+0
+>>> pipe = r.pipeline()
+>>> pipe.set("essai:a", "x").incr("essai:a").set("essai:b", "y").execute()
+Traceback (most recent call last):
+...
+redis.exceptions.ResponseError: Command # 2 (INCRBY essai:a 1) of pipeline caused error: value is not an integer or out of range
+>>> r.get("essai:a"), r.get("essai:b")
+('x', 'y')
+>>> r.delete("essai:a", "essai:b")
+2
+>>> pipe = r.pipeline()
+>>> pipe.set("essai:a", "x")
+<redis.client.Pipeline object at 0x...>
+>>> pipe.incr("essai:a")
+<redis.client.Pipeline object at 0x...>
+>>> pipe.set("essai:b", "y")
+<redis.client.Pipeline object at 0x...>
+>>> pipe.execute(raise_on_error=False)
+[True, ResponseError('value is not an integer or out of range'), True]
+>>> r.get("essai:a"), r.get("essai:b")
+('x', 'y')
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec redis redis-cli SHUTDOWN
+>>> r.ping()
+Traceback (most recent call last):
+...
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker start redis
+redis
+>>> r.ping()
+True
+>>> r.exists("produit:P-001")
+1
+>>> panier = {"produit:P-003": 3, "produit:P-050": 1, "produit:P-176": 2}
+>>> r.hset("panier:8421", mapping=panier)
+3
+>>> r.expire("panier:8421", 604800)
+True
+>>> r.hgetall("panier:8421")
+{'produit:P-003': '3', 'produit:P-050': '1', 'produit:P-176': '2'}
+>>> exit()
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> python .\atelier05-panier.py
+Connecte a redis://localhost:6379
+Panier 8421 : 3 produit(s), expire dans 604798 s
+produit:P-003 Sport 3 x 3 : 327 DH, reste 35
+produit:P-050 Informatique 50 x 1 : stock insuffisant
+produit:P-176 Maison 176 x 2 : 44 DH, reste 36
+Total : 371 DH
+Courriels en attente : 3
+Meilleures ventes (ventes:2026-11) : [('produit:P-003', 3.0), ('produit:P-176', 2.0)]
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> python .\atelier05-panier.py
+Connecte a redis://localhost:6379
+Panier 8421 : vide, ou expire
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> docker exec -it redis redis-cli
+127.0.0.1:6379> EXISTS panier:8421
+(integer) 0
+127.0.0.1:6379> LRANGE file:emails 0 -1
+1) "facture:1041"
+2) "relance:8422"
+3) "confirmation:8421"
+127.0.0.1:6379> ZRANGE ventes:2026-11 0 -1 WITHSCORES
+1) "produit:P-176"
+2) "2"
+3) "produit:P-003"
+4) "3"
+127.0.0.1:6379> HMGET produit:P-003 stock prix
+1) "35"
+2) "109"
+127.0.0.1:6379> EXIT
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> python .\atelier05-panier.py redis://localhost:6380
+Aucun serveur Redis ne repond a l'adresse redis://localhost:6380
+
+17.a. Le second lancement n'écrit rien parce que le premier lancement a supprimé la clé panier:8421. Le programme trouve un panier vide et s'arrête sans modifier les stocks, les ventes ou la file de courriels.
+
+17.b. Si la fiche P-003 est modifiée entre WATCH et EXEC, Redis refuse la transaction et redis-py lève WatchError. La fonction recommence alors la lecture et la transaction. Redis surveille la clé hash produit:P-003 entière et ne peut pas surveiller uniquement le champ stock.
+
+17.c. La version modifiée supprime uniquement les produits vendus avec r.hdel("panier:" + CLIENT, cle_produit). Les produits refusés pour stock insuffisant restent dans le panier et seront réessayés au prochain lancement.
+
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis> python
+Python 3.14.10
+>>> import redis
+>>> r = redis.Redis(host="localhost", port=6379, decode_responses=True)
+>>> r.mset({"visites:2026-09-27": 1200, "visites:2026-09-28": 1350})
+True
+>>> r.mget("visites:2026-09-27", "visites:2026-09-28", "visites:2026-09-29")
+['1200', '1350', None]
+>>> r.delete("panier:8422")
+0
+>>> r.hincrby("panier:8422", "produit:P-003", 1)
+1
+>>> r.hincrby("panier:8422", "produit:P-003", 2)
+3
+>>> r.hincrby("panier:8422", "produit:P-050", 1)
+1
+>>> r.hgetall("panier:8422")
+{'produit:P-003': '3', 'produit:P-050': '1'}
+>>> r.hlen("panier:8422")
+2
+>>> secondes = 7 * 24 * 60 * 60
+>>> secondes
+604800
+>>> r.expire("panier:8422", secondes)
+True
+>>> r.ttl("panier:8422")
+604800
+>>> def consulter(client, cle_produit):
+...     cle = "vus:client:" + client
+...     pipe = r.pipeline()
+...     pipe.lpush(cle, cle_produit)
+...     pipe.ltrim(cle, 0, 2)
+...     pipe.execute()
+...
+>>> r.delete("vus:client:8421")
+0
+>>> consulter("8421", "produit:P-003")
+>>> consulter("8421", "produit:P-050")
+>>> consulter("8421", "produit:P-120")
+>>> consulter("8421", "produit:P-007")
+>>> r.lrange("vus:client:8421", 0, -1)
+['produit:P-007', 'produit:P-120', 'produit:P-050']
+>>> for produit, prix in r.zrevrange("idx:produits:prix", 0, 2, withscores=True):
+...     print(produit, int(prix), "DH")
+...
+produit:P-200 221 DH
+produit:P-199 220 DH
+produit:P-198 219 DH
+>>> r.zcount("idx:produits:prix", 100, 120)
+21
+>>> def autoriser(client, minute, limite=100):
+...     cle = f"limite:{client}:{minute}"
+...     pipe = r.pipeline()
+...     pipe.incr(cle)
+...     pipe.expire(cle, 60, nx=True)
+...     compteur, expiration = pipe.execute()
+...     return compteur <= limite
+...
+>>> r.delete("limite:8421:2026-09-28T14:05")
+0
+>>> autoriser("8421", "2026-09-28T14:05", limite=2)
+True
+>>> autoriser("8421", "2026-09-28T14:05", limite=2)
+True
+>>> autoriser("8421", "2026-09-28T14:05", limite=2)
+False
+>>> r.close()
+>>> exit()
+PS D:\Etudiants\daoudi.sohaib\Documents\NoSQL\Redis>
